@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 
 project(cmake-application-example VERSION 0.0.1 LANGUAGES CXX)
 
-find_package(CMakeLibExample REQUIRED)
+find_package(calculator REQUIRED)
 
-add_executable(CMakeAppExample main.cpp)
-target_link_libraries(CMakeAppExample PUBLIC CMakeLibExample::calculator)
+add_executable(calculator-app main.cpp)
+target_link_libraries(calculator-app PUBLIC calculator::calculator)

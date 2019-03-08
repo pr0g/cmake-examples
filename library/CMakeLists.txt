@@ -6,19 +6,23 @@ add_library(calculator INTERFACE)
 
 include(GNUInstallDirs)
 
+# sets where the include files will be after installation
+# this allows users to #include the library headers
 target_include_directories(
     calculator INTERFACE
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
+# specify the target to install (calculator library defined above)
+# set the export name <name>-config - does not need to match target name
 install(
     TARGETS calculator
-    EXPORT CMakeLibExample-config)
+    EXPORT calculator-config)
 
 install(
-    EXPORT CMakeLibExample-config
-    NAMESPACE CMakeLibExample::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/CMakeLibExample/cmake)
+    EXPORT calculator-config
+    NAMESPACE calculator::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/calculator)
 
 install(
     DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/CMakeLibExample)
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/calculator)
