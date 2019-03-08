@@ -18,11 +18,13 @@ install(
     TARGETS calculator
     EXPORT calculator-config)
 
+# associate installed target files with export and install export
 install(
     EXPORT calculator-config
     NAMESPACE calculator::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/calculator)
 
+# copy files to install directory
 install(
     DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/calculator)
