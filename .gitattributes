@@ -1,2 +1,1 @@
-* linguist-vendored
-*CMakeLists.txt linguist-vendored=false
+* linguist-language=CMake
