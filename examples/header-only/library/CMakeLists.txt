@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.8)
 
 # set the name of the project
 # must immediately follow cmake_minimum_required command
-project(cmake-library-example VERSION 0.0.1 LANGUAGES CXX)
+project(calculator VERSION 0.0.1 LANGUAGES CXX)
 
 # add an interface library target (it will not directly build)
 add_library(calculator INTERFACE)

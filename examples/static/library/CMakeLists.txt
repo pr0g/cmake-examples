@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(cmake-library-example VERSION 0.0.1 LANGUAGES CXX)
+project(calculator-static VERSION 0.0.1 LANGUAGES CXX)
 
 add_library(calculator-static src/calculator.cpp)
 

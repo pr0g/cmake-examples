@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(cmake-library-example VERSION 0.0.1 LANGUAGES CXX)
+project(calculator-dynamic VERSION 0.0.1 LANGUAGES CXX)
 
 add_library(calculator-dynamic SHARED src/calculator.cpp)
 
@@ -23,7 +23,9 @@ target_compile_definitions(
 install(
     TARGETS calculator-dynamic
     EXPORT calculator-dynamic-config
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 install(
     EXPORT calculator-dynamic-config
