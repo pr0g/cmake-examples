@@ -18,8 +18,7 @@ target_include_directories(
 install(
     TARGETS calculator-lib
     EXPORT calculator-lib-config
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib)
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 # associate installed target files with export and install export
 install(
