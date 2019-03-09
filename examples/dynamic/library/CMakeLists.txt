@@ -23,9 +23,7 @@ target_compile_definitions(
 install(
     TARGETS calculator-dynamic
     EXPORT calculator-dynamic-config
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 install(
     EXPORT calculator-dynamic-config
