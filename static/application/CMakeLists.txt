@@ -5,4 +5,5 @@ project(cmake-application-example VERSION 0.0.1 LANGUAGES CXX)
 find_package(calculator-lib REQUIRED)
 
 add_executable(calculator-app main.cpp)
+
 target_link_libraries(calculator-app PUBLIC calculator-lib::calculator-lib)
