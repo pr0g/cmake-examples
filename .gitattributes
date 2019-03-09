@@ -1,0 +1,2 @@
+* linguist-vendored
+*.CMakeLists linguist-vendored=false
