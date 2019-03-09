@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "calculator-lib/calculator.h"
+#include "calculator-dynamic/calculator.h"
 
 int main(int argc, char** argv)
 {
