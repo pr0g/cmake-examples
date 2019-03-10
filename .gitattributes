@@ -1,3 +1,4 @@
-*.h linguist-vendored
-*.cpp linguist-vendored
-*.md linguist-vendored
+* linguist-vendored
+*.cpp linguist-vendored=false
+*.h linguist-vendored=false
+*.txt linguist-language=CMake
