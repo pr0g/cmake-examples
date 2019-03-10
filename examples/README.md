@@ -4,7 +4,11 @@
 
 There are three folders, each containing a library, and an application that uses that library (each top level folder is completely distinct).
 
-The lion's share of the comments are in the _header-only_ folder as that's the first of the three I created and the simplest of the bunch. Each _CMakeLists.txt_ file for each library (_header-only_, _static_ and _dynamic_) contain a bunch of the same commands so I only explain them in their first use (mostly...) so do start with _header-only_ if you want to read through them. The recommended order would be _header-only_, _static_, _dynamic_.
+The lion's share of the comments are in the _header-only_ folder as that's the first of the three I created and the simplest of the bunch. Each `CMakeLists.txt` file for each library (_header-only_, _static_ and _dynamic_) contain a bunch of the same commands so I only explain them in their first use (mostly...) so do start with _header-only_ if you want to read through them. The recommended order would be _header-only_, _static_, _dynamic_.
+
+## Disclaimer
+
+I'm not (yet) including info about how to specify build configurations (Debug/Release etc...). By default all these projects will build in Debug both on *nix/macOS and Windows. Expect an updated project to detail these steps hopefully in the not too distant future.
 
 ## Usage
 
@@ -15,7 +19,11 @@ Taking _header-only_ as an example:
 ```bash
 cd <root>/examples/header-only/library/
 mkdir build && cd build
+# if *nix/macOS
 cmake ..
+# elseif Windows
+cmake -G "Visual Studio 15 2017 Win64" .. # or whatever VS version you have
+# endif
 cmake --build . --target install
 ```
 
@@ -24,7 +32,11 @@ This will install the library to the default location (e.g. `/usr/local/include/
 ```bash
 cd <root>/examples/header-only/library/
 mkdir build && cd build
+# if *nix/macOS
 cmake -DCMAKE_INSTALL_PREFIX="<path/to/install/>" ..
+# elseif Windows
+cmake -G "Visual Studio 15 2017 Win64" -DCMAKE_INSTALL_PREFIX="<path/to/install/>" ..
+# endif
 cmake --build . --target install
 ```
 
@@ -33,9 +45,17 @@ To then build the application, `cd` to the _application_ folder and run these co
 ```bash
 cd <root>/examples/header-only/application/
 mkdir build && cd build
+# if *nix/macOS
 cmake ..
+# elseif Windows
+cmake -G "Visual Studio 15 2017 Win64" .. # or whatever VS version you have
+# endif
 cmake --build .
+# if *nix/macOS
 ./calculator-app
+# elseif Windows
+.\Debug\calculator-app.exe
+# endif
 10
 ```
 
@@ -44,8 +64,49 @@ If you had previously changed the install location, you must tell CMake where to
 ```bash
 cd <root>/examples/header-only/application/
 mkdir build && cd build
+# if *nix/macOS
 cmake -DCMAKE_PREFIX_PATH=<absolute/path/to/installed/lib/> ..
+# elseif Windows
+cmake -G "Visual Studio 15 2017 Win64" -DCMAKE_PREFIX_PATH=<absolute/path/to/installed/lib/> ..
+# endif
 cmake --build .
+# as before for running...
 ```
 
 Notice for `CMAKE_PREFIX_PATH` you must use an absolute path not a relative path from the build folder you're in. You can use a relative path when setting `CMAKE_INSTALL_PREFIX` if you wish.
+
+### Miscellaneous
+
+Some additional notes about the `CMakeLists.txt` files and CMake in general that might be useful.
+
+#### Aliases
+
+- namespace alias does not have to be the same name as the library or export name
+  - e.g. export: calc-config, library: calculator, namespace: bob
+
+#### Install Interface
+
+In the `CMakeLists.txt` file
+
+- `INCLUDES DESTINATION include`
+
+does the same job as...
+
+- `$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>`
+
+Both set INTERFACE_INCLUDE_DIRECTORIES
+
+```bash
+#example
+
+target_include_directories(
+    calculator-lib PUBLIC
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+
+install(
+    TARGETS calculator-lib
+    EXPORT calculator-lib-config
+    INCLUDES DESTINATION include)
+```
+
+In the examples I've opted for the generator expression and omitted the INCLUDES statement.
