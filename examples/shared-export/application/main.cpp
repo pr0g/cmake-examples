@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "calculator-shared/calculator.h"
+#include "calculator-shared-export/calculator.h"
 
 int main(int argc, char** argv)
 {
