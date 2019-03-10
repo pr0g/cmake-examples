@@ -10,7 +10,7 @@ _UPDATE_: I've added a new project called _shared-export_ which is very similar 
 
 ## Disclaimer
 
-I'm not (yet) including info about how to specify build configurations (Debug/Release etc...). By default all these projects will build in Debug both on *nix/macOS and Windows. Expect an updated project to detail these steps hopefully in the not too distant future. I do mention build configurations in the [installing](/installing) section so there's some information regarding it there.
+I'm not (yet) including info about how to specify build configurations (Debug/Release etc...). By default all these projects will build in Debug both on *nix/macOS and Windows. Expect an updated project to detail these steps hopefully in the not too distant future. I do mention build configurations in the [installing](/installing/README.md) section so there's some information regarding it there.
 
 ## Usage
 
