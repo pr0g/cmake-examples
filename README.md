@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository is a collection of as-simple-as-possible CMake projects (with a focus on __installing__).
+This repository is a collection of as simple as possible CMake projects (with a focus on __installing__).
 
 The idea is to try and help understand exactly what each part of a `CMakeLists.txt` file does and why it is needed.
 
@@ -12,7 +12,7 @@ Please see the [Examples README](examples/) for steps on using the example libra
 
 ## Disclaimer
 
-I am __NOT__ a CMake expert - these examples may contain gaffs, faux pas, mistakes etc etc.. Please take everything with a grain of salt and if you recognize a blatant error or mistake please feel free to create an issue or PR.
+I am __NOT__ a CMake expert - these examples may contain gaffs, faux pas, mistakes etc etc.. Please take everything with a pinch of salt and if you recognize a blatant error or mistake please feel free to create an issue or PR.
 
 ## Background
 
@@ -28,7 +28,7 @@ I'm sharing my journey so far to hopefully help some other poor soul who is in t
 
 ## CMake Resources
 
-I've been attempting learn CMake for a while and have built up quite a list of articles/blogs/documentation that have helped inform my understanding up to this point. Please see them listed below (mainly for my benefit so I have them all in one place).
+I've been attempting to learn CMake for a while and have built up quite a list of articles/blogs/documentation that have helped inform my understanding up to this point. Please see them listed below (mainly for my benefit so I have them all in one place).
 
 ### Articles
 
