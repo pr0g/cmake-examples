@@ -113,7 +113,7 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 * [Modern way to set compiler flags in cross-platform cmake project](https://stackoverflow.com/questions/45955272/modern-way-to-set-compiler-flags-in-cross-platform-cmake-project)
 * [cmake usefulness of aliases](https://stackoverflow.com/questions/46567646/cmake-usefulness-of-aliases)
 * [Package vs Library](https://stackoverflow.com/questions/23832339/package-vs-library)
-[After CMake install, I can't find a package with find_package](https://stackoverflow.com/questions/50687477/after-cmake-install-i-cant-find-a-package-with-find-package)
+* [After CMake install, I can't find a package with find_package](https://stackoverflow.com/questions/50687477/after-cmake-install-i-cant-find-a-package-with-find-package)
 
 ### YouTube
 
