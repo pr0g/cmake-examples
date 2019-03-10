@@ -4,11 +4,11 @@
 
 There are three folders, each containing a library, and an application that uses that library (each top level folder is completely distinct).
 
-The lion's share of the comments are in the _header-only_ folder as that's the first of the three I created and the simplest of the bunch. Each `CMakeLists.txt` file for each library (_header-only_, _static_ and _dynamic_) contain a bunch of the same commands so I only explain them in their first use (mostly...) so do start with _header-only_ if you want to read through them. The recommended order would be _header-only_, _static_, _dynamic_.
+The lion's share of the comments are in the _header-only_ folder as that's the first of the three I created and the simplest of the bunch. Each `CMakeLists.txt` file for each library (_header-only_, _static_ and _dynamic_) contain a bunch of the same commands so I only explain them during their first use (mostly...) so do start with _header-only_ if you want to read through them. The recommended order would be _header-only_, _static_, _dynamic_.
 
 ## Disclaimer
 
-I'm not (yet) including info about how to specify build configurations (Debug/Release etc...). By default all these projects will build in Debug both on *nix/macOS and Windows. Expect an updated project to detail these steps hopefully in the not too distant future.
+I'm not (yet) including info about how to specify build configurations (Debug/Release etc...). By default all these projects will build in Debug both on *nix/macOS and Windows. Expect an updated project to detail these steps hopefully in the not too distant future. I do mention build configurations in the [installing](/installing) section so there's some information regarding it there.
 
 ## Usage
 
@@ -79,10 +79,29 @@ Notice for `CMAKE_PREFIX_PATH` you must use an absolute path not a relative path
 
 Some additional notes about the `CMakeLists.txt` files and CMake in general that might be useful.
 
+#### Windows
+
+- When installing to the default location on Windows (`C:\Program Files\<lib>`) you'll need to run `cmd.exe` (or [`cmder.exe`]((https://cmder.net/)) because it's 100% more awesome) as Administrator, or you'll get a bunch of errors about permissions and not being able to create new files in that location.
+
+- On Windows, the folder name where the library gets installed to will be the CMake project name
+
+```bash
+# e.g.
+# CMakeLists.txt
+project(a-useful-library VERSION 0.0.1 LANGUAGES CXX)
+...
+
+# location after install
+C:\Program Files\a-useful-library\
+```
+
+It's therefore best to keep the `project` name the same as the `export` name to ensure `find_package` works correctly.
+
 #### Aliases
 
-- namespace alias does not have to be the same name as the library or export name
-  - e.g. export: calc-config, library: calculator, namespace: bob
+The namespace alias does not have to be the same name as the library or export name
+
+- e.g. export: calculator-config, library: calculator, namespace: bob
 
 #### Install Interface
 
@@ -94,7 +113,7 @@ does the same job as...
 
 - `$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>`
 
-Both set INTERFACE_INCLUDE_DIRECTORIES
+Both set `INTERFACE_INCLUDE_DIRECTORIES`
 
 ```bash
 #example
@@ -109,4 +128,4 @@ install(
     INCLUDES DESTINATION include)
 ```
 
-In the examples I've opted for the generator expression and omitted the INCLUDES statement.
+In the examples I've opted for the generator expression and omitted the `INCLUDES` statement.

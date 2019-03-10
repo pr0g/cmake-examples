@@ -6,7 +6,7 @@ This repository is a collection of as simple as possible CMake projects (with a 
 
 This is basically intended as a series of reminders to help me remember how to use CMake 🤦
 
-Please see the [Examples README](examples/) for steps on using the example libraries.
+Please see the [Example ReadMe](examples/) for steps on using the example libraries and the [Installing ReadMe](installing/) for an overview of installing CMake libraries.
 
 ## Disclaimer
 
@@ -22,7 +22,10 @@ The examples in this repo are the culmination of many months of sporadic researc
 
 I'm sharing my journey so far to hopefully help some other poor soul who is in the same boat I'm in. With any luck there will be something someone finds useful here.
 
+For an explanation<sup>2</sup> of _what_ (in the context of CMake) __installing__  is, please see the [Installing](installing/) section and take a look at the various [example](examples/) projects for context.
+
 1. I recently discovered a kindred spirit on [reddit](https://www.reddit.com/r/cpp/comments/6m7sp6/cmake_and_c_whats_the_deal_with_installing/)
+2. My interpretation?
 
 ## CMake Resources
 
