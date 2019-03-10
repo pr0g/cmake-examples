@@ -123,6 +123,7 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 * [Path to target output file](https://stackoverflow.com/questions/4346281/path-to-target-output-file)
 * [Building of executable and shared library with cmake, runtimelinker does not find dll](https://stackoverflow.com/questions/23323741/building-of-executable-and-shared-library-with-cmake-runtimelinker-does-not-fin)
 * [https://stackoverflow.com/questions/28692896/how-to-use-cmake-generator-expression-target-filetgt](https://stackoverflow.com/questions/28692896/how-to-use-cmake-generator-expression-target-filetgt)
+* [A simple example of using cmake to build a Windows DLL](https://stackoverflow.com/questions/24872225/a-simple-example-of-using-cmake-to-build-a-windows-dll)
 
 ### YouTube
 
