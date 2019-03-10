@@ -6,6 +6,8 @@ There are three folders, each containing a library, and an application that uses
 
 The lion's share of the comments are in the _header-only_ folder as that's the first of the three I created and the simplest of the bunch. Each `CMakeLists.txt` file for each library (_header-only_, _static_ and _shared_) contain a bunch of the same commands so I only explain them during their first use (mostly...) so do start with _header-only_ if you want to read through them. The recommended order would be _header-only_, _static_, _shared_.
 
+_UPDATE_: I've added a new project called _shared-export_ which is very similar to _shared_ except it makes use of the `generate_export_header` command. This generates a file containing the export macros required when exporting functions from a dll. The `CMakeLists.txt` file for the library is modified slightly as well as the sample application.
+
 ## Disclaimer
 
 I'm not (yet) including info about how to specify build configurations (Debug/Release etc...). By default all these projects will build in Debug both on *nix/macOS and Windows. Expect an updated project to detail these steps hopefully in the not too distant future. I do mention build configurations in the [installing](/installing) section so there's some information regarding it there.
