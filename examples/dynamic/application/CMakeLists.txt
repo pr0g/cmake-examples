@@ -16,4 +16,3 @@ add_custom_command(
     $<TARGET_FILE_DIR:calculator-dynamic::calculator-dynamic>
     $<TARGET_FILE_DIR:calculator-app>)
 endif()
-    
