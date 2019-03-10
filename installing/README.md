@@ -2,11 +2,11 @@
 
 This isn't going to be a strict technical definition of installing, I just want to distill roughly what it is, what you get from it, and why it's cool.
 
-Installing is really just copying certain files from the src/build location to somewhere else so other projects can use them. Quite _where_ this was drove me nuts for ages (coming from a predominantly Windows background it just felt weird). It doesn't help that lots of examples are predominantly `make` focussed which makes understanding how things work on Windows more difficult (I use Visual Studio most of the time).
+Installing is really just copying certain files from a src/build location to somewhere else so other projects can use them. Quite _where_ this was drove me nuts for ages (coming from a predominantly Windows background it just felt weird). It doesn't help that lots of examples are predominantly `make` focussed which makes understanding how things work on Windows more difficult (I use Visual Studio most of the time).
 
 Before understanding how to install your own libraries it's actually really helpful to use an existing library that's already done all the hard work for you. Let's choose Google's [benchmark](https://github.com/google/benchmark) library as an example.
 
-The `benchmark` docs do an okay job of explaing how to download and build it, but unfortunately they're `make` orientated again. Let's list the commands you'd need to have this work on *nix/macOS or Windows.
+The `benchmark` docs do an okay job of explaining how to download and build it, but unfortunately they're `make` orientated again. Let's list the commands you'd need to have this work on *nix/macOS or Windows.
 
 ```bash
 mkdir benchmark && cd benchmark
@@ -44,13 +44,15 @@ The part that follows `--build .`
 
 Will take the built files and then _install_ (copy) them to the default system location. This is `/usr/local/lib/`, `usr/local/include/`, `usr/local/bin/` etc. on *nix/macOS and `C:\Program Files\<lib name>` on Windows (please see the [Windows](/examples/README.md#Windows) section in the miscellaneous part of the [examples](/examples/) README for more details on this). The `include`, `lib`, `bin` folders all exist as subdirectories inside the main folder.
 
+These locations are where CMake will actually look for libraries/packages when running the `find_package` command from a `CMakeLists.txt` file.
+
 The part I haven't yet mentioned
 
 ```bash
 --config Release
 ```
 
-Is to instruct which configuration to build when using Visual Studio solution files. In the `make` example, when we first generate the build files we must pick the build type (`-DCMAKE_BUILD_TYPE=DEBUG/RELEASE` etc. the default is `DEBUG`) but with Visual Studio multiple build type are generated and you can select them at build time using `--config`. I might be getting some of the exact details wrong here but it's likely not far from the truth.
+Is to instruct which configuration to build when using Visual Studio solution files. In the `make` example, when we first generate the build files we must pick the build type (`-DCMAKE_BUILD_TYPE=DEBUG/RELEASE` etc. the default is `DEBUG`) but with Visual Studio multiple build types are generated and you can select them at build time using `--config`. I might be getting some of the exact details wrong here but it's likely not far from the truth.
 
 If you followed the above steps you should now have Google benchmark installed on your system. The incredibly useful thing once you've done this is now in your application you can simply use the `find_package` command to use `benchmark` as a dependency.
 
