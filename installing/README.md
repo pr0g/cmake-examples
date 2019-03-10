@@ -42,7 +42,7 @@ The part that follows `--build .`
 --target install
 ```
 
-Will take the built files and then _install_ (copy) them to the default system location. This is `/usr/local/lib/`, `usr/local/include/`, `usr/local/bin/` etc. on *nix/macOS and `C:\Program Files\<lib name>` on Windows (please see the [Windows](/examples/README.md#Windows) section in the miscellaneous part of the [Examples](/examples/) ReadMe for more details on this). The `include`, `lib`, `bin` folders all exist as subdirectories inside the main folder.
+Will take the built files and then _install_ (copy) them to the default system location. This is `/usr/local/lib/`, `usr/local/include/`, `usr/local/bin/` etc. on *nix/macOS and `C:\Program Files\<lib name>` on Windows (please see the [Windows](/examples/README.md#Windows) section in the miscellaneous part of the [examples](/examples/) README for more details on this). The `include`, `lib`, `bin` folders all exist as subdirectories inside the main folder.
 
 The part I haven't yet mentioned
 
