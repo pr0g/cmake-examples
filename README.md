@@ -2,9 +2,7 @@
 
 ## Overview
 
-This repository is a collection of as simple as possible CMake projects (with a focus on __installing__).
-
-The idea is to try and help understand exactly what each part of a `CMakeLists.txt` file does and why it is needed.
+This repository is a collection of as simple as possible CMake projects (with a focus on __installing__). The idea is to try and help understand exactly what each part of a `CMakeLists.txt` file does and why it is needed.
 
 This is basically intended as a series of reminders to help me remember how to use CMake 🤦
 
@@ -93,11 +91,13 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 
 ### Documentation
 
-* [target_include_directories](https://cmake.org/cmake/help/latest/command/target_include_directories.html)
 * [cmake-buildsystem](https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html)
 * [cmake-packages](https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html)
-* [find_package](https://cmake.org/cmake/help/latest/command/find_package.html)
+* [cmake-properties](https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html)
+* [cmake-generator-expressions](https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html)
 * [install](https://cmake.org/cmake/help/latest/command/install.html)
+* [find_package](https://cmake.org/cmake/help/latest/command/find_package.html)
+* [target_include_directories](https://cmake.org/cmake/help/latest/command/target_include_directories.html)
 * [ExternalProject](https://cmake.org/cmake/help/latest/module/ExternalProject.html)
 * [CMAKE_PREFIX_PATH](https://cmake.org/cmake/help/latest/variable/CMAKE_PREFIX_PATH.html#variable:CMAKE_PREFIX_PATH)
 * [CMAKE_INSTALL_PREFIX](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html)
@@ -114,6 +114,12 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 * [cmake usefulness of aliases](https://stackoverflow.com/questions/46567646/cmake-usefulness-of-aliases)
 * [Package vs Library](https://stackoverflow.com/questions/23832339/package-vs-library)
 * [After CMake install, I can't find a package with find_package](https://stackoverflow.com/questions/50687477/after-cmake-install-i-cant-find-a-package-with-find-package)
+* [cmake add_library, followed by install library destination](https://stackoverflow.com/questions/22278381/cmake-add-library-followed-by-install-library-destination)
+* [CMake install is not installing libraries on Windows](https://stackoverflow.com/questions/21592361/cmake-install-is-not-installing-libraries-on-windows)
+* [How to copy DLL files into the same folder as the executable using CMake?](https://stackoverflow.com/questions/10671916/how-to-copy-dll-files-into-the-same-folder-as-the-executable-using-cmake)
+* [Path to target output file](https://stackoverflow.com/questions/4346281/path-to-target-output-file)
+* [Building of executable and shared library with cmake, runtimelinker does not find dll](https://stackoverflow.com/questions/23323741/building-of-executable-and-shared-library-with-cmake-runtimelinker-does-not-fin)
+* [https://stackoverflow.com/questions/28692896/how-to-use-cmake-generator-expression-target-filetgt](https://stackoverflow.com/questions/28692896/how-to-use-cmake-generator-expression-target-filetgt)
 
 ### YouTube
 
