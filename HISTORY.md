@@ -1,5 +1,14 @@
 # History
 
+## 12 March
+
+- Fixed `.gitattributes` file (finally) to correctly display languages in repo
+- Merged PR by 0xflotus to fix a spelling mistake
+
+## 11 March
+
+- Added LICENSE
+
 ## 10 March 2019
 
 - Publish!
