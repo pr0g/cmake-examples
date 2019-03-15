@@ -26,7 +26,9 @@ cmake --build . --config Release --target install
 # endif
 ```
 
-The project generation commands have some platform specific differences (which is a little bit of a pain), but fortunately CMake has platform agnostic commands to do basically everything else you need without having to resort to calling `make` or `msbuild` explicitly.
+> Aside: The variable we pass to CMake on Windows `-Dgtest_force_shared_crt=ON` is necessary to stop GoogleTest (which benchmark depends on) modifying the compiler/linker options for the project. Please see [this](https://crascit.com/2015/07/25/cmake-gtest/) article by [@crascit](https://twitter.com/crascit) for a more detailed explanation.
+
+The project generation commands have some platform specific differences (which is a little bit of a pain), but fortunately CMake has platform agnostic commands to do basically everything else you need without having to resort to calling `make` or `msbuild` directly.
 
 Say hello to:
 
