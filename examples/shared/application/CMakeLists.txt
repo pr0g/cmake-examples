@@ -14,5 +14,6 @@ add_custom_command(
     TARGET calculator-app POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     $<TARGET_FILE_DIR:calculator-shared::calculator-shared>
-    $<TARGET_FILE_DIR:calculator-app>)
+    $<TARGET_FILE_DIR:calculator-app>
+    VERBATIM)
 endif()
