@@ -4,9 +4,9 @@
 
 One potential problem with installing libraries in `CMake` is you might have multiple versions of a library you'd like to install at the same time.
 
-For example, say you have designed, built and installed a library to elegantly solve the well established `FizzBuzz` programming problem. You build an app that uses this library to print the output of the `FizzBuzz` up to 100 digits, and everything is good.
+For example say you have designed, built and installed a library to elegantly solve the well established `FizzBuzz` programming problem. You build an app that uses this library to print the output of the `FizzBuzz` up to 100 digits, and everything is good.
 
-You decide to start improving the `FizzBuzz` library and have an idea about using an iterator to produce an infinite sequence of `Fizz`, `Buzz` or `FizzBuzz`. The problem is this totally breaks the interface of your original `FizzBuzz` implementation which your first app is  relying on. To take advantage of your new and improved library you decide to move on from your first app and create a new interactive app that uses the update `FizzBuzz` library, but you don't really want to have to go and update the old app, and it'd sure be nice if it kept building in the future if you ever had to go back and fix a bug in it.
+You decide to start improving the `FizzBuzz` library and have an idea about using an iterator to produce an infinite sequence of `"Fizz"`, `"Buzz"` or `"FizzBuzz"`. The problem is this totally breaks the interface of your original `FizzBuzz` implementation which your first app is  relying on. To take advantage of your new and improved library you decide to move on from your first app and create a new interactive app that uses the updated `FizzBuzz` library. The problem is you don't really want to have to go and update the old app, and it'd sure be nice if it kept building in the future if you ever had to go back and fix a bug in it.
 
 Versioning to the rescue!
 
