@@ -35,7 +35,7 @@ install(
                            # to distinguish imported targets from internal ones
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/calculator) # where the .cmake file will be installed
 
-# copy include files to install directory
+# copy include files to the install include directory
 install(
     DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/calculator)
