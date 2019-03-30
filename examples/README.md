@@ -1,9 +1,9 @@
 # Examples
 
-## Core
+## [Core](core/)
 
-Examples in this section focus on core concepts without straying too far into the weeds - the idea being to try and stay as simple as possible.
+Examples in [Core](core/) focus on core concepts without straying too far into the weeds - the idea being to try and stay as simple as possible.
 
-## More
+## [More](more/)
 
-Examples in this section build on examples from Core, introducing new ideas and slightly more advanced techniques.
+Examples in [More](more/) build on examples from [Core](core/), introducing new ideas and slightly more advanced techniques.
