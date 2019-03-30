@@ -44,7 +44,7 @@ The part that follows `--build .`
 --target install
 ```
 
-Will take the built files and then _install_ (copy) them to the default system location. This is `/usr/local/lib/`, `usr/local/include/`, `usr/local/bin/` etc. on *nix/macOS and `C:\Program Files\<lib name>` on Windows (please see the [Windows](/examples/README.md#Windows) section in the miscellaneous part of the [examples](/examples/) README for more details on this). The `include`, `lib`, `bin` folders all exist as subdirectories inside the main folder.
+Will take the built files and then _install_ (copy) them to the default system location. This is `/usr/local/lib/`, `usr/local/include/`, `usr/local/bin/` etc. on *nix/macOS and `C:\Program Files\<lib name>` on Windows (please see the [Windows](/examples/core/README.md#Windows) section in the miscellaneous part of the [examples](/examples/core/) README for more details on this). The `include`, `lib`, `bin` folders all exist as subdirectories inside the main folder.
 
 These locations are where CMake will actually look for libraries/packages when running the `find_package` command from a `CMakeLists.txt` file.
 
@@ -96,4 +96,4 @@ BENCHMARK(measure_something);
 
 This blew my mind when it finally clicked because up until this point I'd been basically doing everything manually (calling `target_include_directories`, `target_link_directories` etc..). Being able to use `find_package` massively reduces the complexity of your `CMakeLists.txt` files when adding new libraries. The wrinkle is you have to hope maintainers have done this hard work for you (otherwise you can write FindXXX.cmake files but that's outside the scope of this intro).
 
-This brings us finally to installing our own libraries. To understand exactly what's required I direct you to the example CMake [projects](/examples). If you start with [header-only](/examples/header-only) and read through the `CMakeLists.txt` I've added comments to each of the `install` commands, detailing what they do and why they're needed. Hopefully you should be able to lift the necessary parts for your own `CMakeLists.txt` files should you wish to provide the ability to install your own libraries.
+This brings us finally to installing our own libraries. To understand exactly what's required I direct you to the example CMake [projects](/examples). If you start with [header-only](/examples/core/header-only) and read through the `CMakeLists.txt` I've added comments to each of the `install` commands, detailing what they do and why they're needed. Hopefully you should be able to lift the necessary parts for your own `CMakeLists.txt` files should you wish to provide the ability to install your own libraries.
