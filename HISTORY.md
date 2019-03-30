@@ -1,5 +1,11 @@
 # History
 
+## 30th March 2019
+
+- Added experimental `static-auto-install` example
+- Reorganised folders to split up core examples from slightly more advanced cases
+- Do a pass over READMEs to ensure they are up to date
+
 ## 28th March 2019
 
 - Added README for `static-versioned` example and updated comments in `CMakeLists.txt` files for that project
