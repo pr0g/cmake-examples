@@ -1,5 +1,9 @@
 # History
 
+## 28th March 2019
+
+- Added README for `static-versioned` example and updated comments in `CMakeLists.txt` files for that project
+
 ## 24th March 2019
 
 - Added a new example folder `static-versioned` to show an example of setting up a `CMakeLists.txt` file to handle installing multiple versions of the same library
