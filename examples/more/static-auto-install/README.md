@@ -16,6 +16,19 @@ The idea is you provide the path to the root `CMakeLists.txt` file of the librar
 
 If you take a look at the `CMakeLists.txt` file in this directory there are some comments to try and explain what's going on. I'm just providing the application in this folder, it depends on the existing `calculator-static` library. The one additional step required is to pass `-DDEV_LIB_DIR` to `cmake` at the command line (or just update the variable in the `CMakeLists.txt` file) to provide the path to the library.
 
+## Usage
+
+```bash
+cd <root>/examples/more/static-auto-install/application/
+mkdir build && cd build
+# if *nix/macOS
+cmake -DDEV_LIB_DIR="<root>/examples/core/static/library/" ..
+# elseif Windows
+cmake -G "Visual Studio 15 2017 Win64" -DDEV_LIB_DIR="<root>/examples/core/static/library/" .. # or whatever VS version you have
+# endif
+cmake --build .
+```
+
 ## Caveats
 
 * At the moment the build/install step only happens during configure (`cmake ..`), not during build (`cmake --build .`) which means you have to run both commands to have the library rebuilt and installed. This might be okay, but it also might be nice to have it happen during `cmake --build .` as well. I might come back to this...
