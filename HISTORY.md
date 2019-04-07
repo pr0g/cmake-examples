@@ -1,5 +1,9 @@
 # History
 
+## 7th April 2019
+
+- Added a few more links to the main README.md file
+
 ## 30th March 2019
 
 - Added experimental `static-auto-install` example

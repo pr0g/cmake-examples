@@ -91,6 +91,12 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
   * [Effective CMake](https://github.com/boostcon/cppnow_presentations_2017/blob/master/05-19-2017_friday/effective_cmake__daniel_pfeifer__cppnow_05-19-2017.pdf)
 * kde
   * [How to get CMake find what you want it to](https://blogs.kde.org/2008/12/12/how-get-cmake-find-what-you-want-it)
+* Schneide Blog - Marius Elvert
+  * [Modern CMake with target_link_libraries](https://schneide.blog/2016/04/08/modern-cmake-with-target_link_libraries/)
+* Jeff Preshing
+  * [Learn CMake's Scripting Language in 15 Minutes](https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/)
+* Sam Thursfield
+  * [CMake: dependencies between targets and files and custom commands](https://samthursfield.wordpress.com/2015/11/21/cmake-dependencies-between-targets-and-files-and-custom-commands/)
 
 ### Documentation
 
@@ -102,6 +108,9 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 * [find_package](https://cmake.org/cmake/help/latest/command/find_package.html)
 * [target_include_directories](https://cmake.org/cmake/help/latest/command/target_include_directories.html)
 * [project](https://cmake.org/cmake/help/latest/command/project.html)
+* [macro](https://cmake.org/cmake/help/latest/command/macro.html)
+* [function](https://cmake.org/cmake/help/latest/command/function.html)
+* [set](https://cmake.org/cmake/help/latest/command/set.html)
 * [ExternalProject](https://cmake.org/cmake/help/latest/module/ExternalProject.html)
 * [CMakePackageConfigHelpers](https://cmake.org/cmake/help/latest/module/CMakePackageConfigHelpers.html)
 * [CMAKE_PREFIX_PATH](https://cmake.org/cmake/help/latest/variable/CMAKE_PREFIX_PATH.html#variable:CMAKE_PREFIX_PATH)
@@ -126,6 +135,8 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 * [Building of executable and shared library with cmake, runtimelinker does not find dll](https://stackoverflow.com/questions/23323741/building-of-executable-and-shared-library-with-cmake-runtimelinker-does-not-fin)
 * [https://stackoverflow.com/questions/28692896/how-to-use-cmake-generator-expression-target-filetgt](https://stackoverflow.com/questions/28692896/how-to-use-cmake-generator-expression-target-filetgt)
 * [A simple example of using cmake to build a Windows DLL](https://stackoverflow.com/questions/24872225/a-simple-example-of-using-cmake-to-build-a-windows-dll)
+* [CMake run custom command before build?](https://stackoverflow.com/questions/37862072/cmake-run-custom-command-before-build)
+* [How to change the build type to Release mode in cmake?](https://stackoverflow.com/questions/19024259/how-to-change-the-build-type-to-release-mode-in-cmake?rq=1)
 
 ### YouTube
 
