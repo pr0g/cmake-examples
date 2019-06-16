@@ -1,5 +1,9 @@
 # History
 
+## 16th June 2019
+
+- Added a new example in `more` section titled `header-only-defines` with an example of using `target_compile_definitions` in the application and `target_compile_features` in the library
+
 ## 7th April 2019
 
 - Added a few more links to the main README.md file
