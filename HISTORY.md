@@ -1,5 +1,10 @@
 # History
 
+## 6th September 2019
+
+- Added more info about installing to custom locations in Install section
+- Added miscellaneous section to main README.md with some useful CMake techniques
+
 ## 16th June 2019
 
 - Added a new example in `more` section titled `header-only-defines` with an example of using `target_compile_definitions` in the application and `target_compile_features` in the library

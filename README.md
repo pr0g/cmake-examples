@@ -27,6 +27,74 @@ For an explanation<sup>2</sup> of _what_ (in the context of CMake) __installing_
 1. I recently discovered a kindred spirit on [reddit](https://www.reddit.com/r/cpp/comments/6m7sp6/cmake_and_c_whats_the_deal_with_installing/)
 2. My interpretation?
 
+## Miscellaneous
+
+While using CMake over the last several months I've stumbled across a few useful little bits and bobs that I feel are worth recording/sharing.
+
+### Less `cd`-ing
+
+To run CMake from your source directory (instead of having to `mkdir build && cd build`) you can pass `-S` and the path to your source folder (most likely just `.` for where you currently are) and `-B` to specify the build folder.
+
+```bash
+cd <project/root>
+cmake -S . -B build/
+```
+
+You then just need to remember to call
+
+```bash
+cmake --build build/
+```
+
+to actually build your project.
+
+> Note: The `-S` option was added to CMake in version `3.13`. Before then you could use the undocumented `-H` option. I'd recommend sticking with `-S` now if you can 🙂.
+
+### compile_commands.json
+
+You should absolutely use `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON` when generating your project to have CMake create a `compile_commands.json` file for you. This is useful for all sorts of tools (`clang-tidy`, `cppcheck`, `oclint`, `include-what-you-use` etc etc...)
+
+```bash
+# from the build/ folder
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+```
+
+### Defines
+
+Sometimes it's really useful to be able to set defines at the command line when running the CMake generator. An easy way to do this is to add a simple generator expression to your `CMakeLists.txt` file in `target_compile_definitions`.
+
+```bash
+target_compile_definitions(
+    ${PROJECT_NAME} PRIVATE
+    $<$<BOOL:${YOUR_DEFINE}>:YOUR_DEFINE>)
+```
+
+In your code you can then use this define for some sort of conditional compilation.
+
+```c++
+#ifdef YOUR_DEFINE
+// something useful
+#endif // YOUR_DEFINE
+```
+
+And when invoking `cmake` you can pass a CMake variable like so if you want that macro to be defined.
+
+```bash
+# from the build/ folder
+cmake -DYOUR_DEFINE ..
+```
+
+If you don't pass the variable then the generator expression will evaluate to false and no define will be added.
+
+### Extra Output
+
+Sometimes when building with CMake to diagnose an issue you might want more info about exactly what's being compiled. You can see everything that's passed to the compiler when building with the `-- VERBOSE` flag.
+
+```bash
+# from the build/ folder
+cmake --build . -- VERBOSE=1
+```
+
 ## CMake Resources
 
 I've been attempting to learn CMake for a while and have built up quite a list of articles/blogs/documentation that have helped inform my understanding up to this point. Please see them listed below (mainly for my benefit so I have them all in one place).
@@ -107,6 +175,7 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 * [install](https://cmake.org/cmake/help/latest/command/install.html)
 * [find_package](https://cmake.org/cmake/help/latest/command/find_package.html)
 * [target_include_directories](https://cmake.org/cmake/help/latest/command/target_include_directories.html)
+* [target_compile_definitions](https://cmake.org/cmake/help/latest/command/target_compile_definitions.html)
 * [project](https://cmake.org/cmake/help/latest/command/project.html)
 * [macro](https://cmake.org/cmake/help/latest/command/macro.html)
 * [function](https://cmake.org/cmake/help/latest/command/function.html)

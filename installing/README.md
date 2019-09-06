@@ -97,3 +97,31 @@ BENCHMARK(measure_something);
 This blew my mind when it finally clicked because up until this point I'd been basically doing everything manually (calling `target_include_directories`, `target_link_directories` etc..). Being able to use `find_package` massively reduces the complexity of your `CMakeLists.txt` files when adding new libraries. The wrinkle is you have to hope maintainers have done this hard work for you (otherwise you can write FindXXX.cmake files but that's outside the scope of this intro).
 
 This brings us finally to installing our own libraries. To understand exactly what's required I direct you to the example CMake [projects](/examples). If you start with [header-only](/examples/core/header-only) and read through the `CMakeLists.txt` I've added comments to each of the `install` commands, detailing what they do and why they're needed. Hopefully you should be able to lift the necessary parts for your own `CMakeLists.txt` files should you wish to provide the ability to install your own libraries.
+
+## Installing to Custom Locations
+
+I touch on this in the [Examples](/examples) section but thought it'd be worthwhile expanding on it a little here as I've used this feature quite a bit.
+
+It can be incredibly useful to install a library to a custom location that isn't the default system location (e.g. `/usr/local/{include, lib, bin}` on *nix/macOS and `Program Files/` on Windows).
+
+To do this when running the `cmake` generator, pass `-DCMAKE_INSTALL_PREFIX=<path/to/install>`
+
+```bash
+cd <your/library/root> # where library root CMakeLists.txt is
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=../install/ ..
+cmake --build . --target install
+```
+
+This will build and install the library to a new folder called `install/` in your library root directory. Now suppose we have our application sitting right next to the library folder (much like the folder layout in each of the [Examples](/examples)). If we would like to consume the library using `find_package` we need to tell CMake where to look. We do this using `-DCMAKE_PREFIX_PATH=<path/to/install/>`
+
+```bash
+cd <your/app/root> # where app root CMakeLists.txt is
+mkdir build && cd build
+cmake -DCMAKE_PREFIX_PATH=$(pwd)/../../library/install/ ..
+cmake --build .
+```
+
+Because `CMAKE_PREFIX_PATH` only accepts an absolute path we can use a neat trick with `$(pwd)` (the Windows equivalent is `%cd%`) to give us the full path to where we are running from and then build a relative path from there.
+
+While setting up continuous integration for another project using CMake I found these techniques to be incredibly useful. Often it's not possible to install libraries to the default locations due to privilege restrictions.
