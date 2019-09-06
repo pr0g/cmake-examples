@@ -100,7 +100,7 @@ This brings us finally to installing our own libraries. To understand exactly wh
 
 ## Installing to Custom Locations
 
-I touch on this in the [Examples](/examples) section but thought it'd be worthwhile expanding on it a little here as I've used this feature quite a bit.
+I touch on this in the [Examples](/examples/core) section but thought it'd be worthwhile expanding on it a little here as I've used this feature quite a bit.
 
 It can be incredibly useful to install a library to a custom location that isn't the default system location (e.g. `/usr/local/{include, lib, bin}` on *nix/macOS and `Program Files/` on Windows).
 
