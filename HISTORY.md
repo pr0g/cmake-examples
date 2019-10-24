@@ -1,5 +1,11 @@
 # History
 
+## 24th October 2019
+
+- Small updates to `shared` and `shared-export` libraries to include RUNTIME and ARCHIVE locations (CMake picks sensible defaults in later versions but this provides more customization points for users)
+- Add link to new CMake video by Craig Scott from CppCon 2019
+- Added new line at end of files
+
 ## 6th September 2019
 
 - Added more info about installing to custom locations in Install section

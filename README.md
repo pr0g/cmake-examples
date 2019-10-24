@@ -209,6 +209,7 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 
 ### YouTube
 
+* [CppCon 2019: Craig Scott “Deep CMake for Library Authors”](https://www.youtube.com/watch?v=m0DwB4OvDXk)
 * [C++Now 2017: Daniel Pfeifer “Effective CMake"](https://youtu.be/bsXLMQ6WgIk)
 * [CMake for Dummies](https://youtu.be/7W4Q-XLnMaA)
 * [C++Now 2018: Mateusz Pusz “Git, CMake, Conan: How to Ship and Reuse our C++ Projects”](https://youtu.be/6sWec7b0JIc)
