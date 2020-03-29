@@ -52,12 +52,14 @@ to actually build your project.
 
 ### compile_commands.json
 
-You should absolutely use `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON` when generating your project to have CMake create a `compile_commands.json` file for you. This is useful for all sorts of tools (`clang-tidy`, `cppcheck`, `oclint`, `include-what-you-use` etc etc...)
+You should absolutely use `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON` when generating your project to have CMake create a `compile_commands.json` file for you. This is useful for all sorts of tools (`clang-tidy`, `cppcheck`, `oclint`, `include-what-you-use` etc. etc...).
 
 ```bash
 # from the build/ folder
 cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 ```
+
+> Note: `CMAKE_EXPORT_COMPILE_COMMANDS` is only supported for _Make_ and _Ninja_ generators. The good news is it's pretty simple to use _Ninja_ on Windows in place of _Visual Studio_/_MSBuild_ - for instructions please see [this repo](https://github.com/pr0g/clang-experiments#ninja).
 
 ### Defines
 
