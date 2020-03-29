@@ -88,12 +88,14 @@ If you don't pass the variable then the generator expression will evaluate to fa
 
 ### Extra Output
 
-Sometimes when building with CMake to diagnose an issue you might want more info about exactly what's being compiled. You can see everything that's passed to the compiler when building with the `-- VERBOSE` flag.
+Sometimes when building with CMake to diagnose an issue you might want more info about exactly what's being compiled. You can see everything that's passed to the compiler when building with the `--verbose` (`-v`) flag.
 
 ```bash
 # from the build/ folder
-cmake --build . -- VERBOSE=1
+cmake --build . -v
 ```
+
+This works for an array of generators (_Make, Visual Studio, Ninja_ etc.).
 
 ## CMake Resources
 
