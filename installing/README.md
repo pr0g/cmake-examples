@@ -10,19 +10,18 @@ The `benchmark` docs do an okay job of explaining how to download and build it, 
 
 ```bash
 mkdir benchmark && cd benchmark
-git clone https://github.com/google/benchmark.git ./
+git clone https://github.com/google/benchmark.git .
 # Benchmark requires Google Test as a dependency. Add the source tree as a subdirectory.
 git clone https://github.com/google/googletest.git googletest
-mkdir build && cd build
 # if *nix/macOS
-cmake -DCMAKE_BUILD_TYPE=RELEASE ..
+cmake -S . -B build -DCMAKE_BUILD_TYPE=RELEASE
 # elseif Windows
-cmake -G "Visual Studio 15 2017 Win64" -Dgtest_force_shared_crt=ON ..\benchmark\ # for Visual Studio build files (.sln)
+cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -Dgtest_force_shared_crt=ON # for Visual Studio build files (.sln)
 # endif
 # if *nix/macOS
-cmake --build . --target install
+cmake --build build --target install
 # elseif Windows
-cmake --build . --config Release --target install
+cmake --build build --config Release --target install
 # endif
 ```
 
@@ -66,12 +65,13 @@ project(my_app LANGUAGES CXX)
 
 find_package(benchmark REQUIRED)
 
-add_executable(${CMAKE_PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME} PRIVATE main.cpp)
 
 # make sure we build using c++11
-target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_11)
 
-target_link_libraries(${CMAKE_PROJECT_NAME}
+target_link_libraries(${PROJECT_NAME}
     benchmark::benchmark
     benchmark::benchmark_main
 )
@@ -108,18 +108,16 @@ To do this when running the `cmake` generator, pass `-DCMAKE_INSTALL_PREFIX=<pat
 
 ```bash
 cd <your/library/root> # where library root CMakeLists.txt is
-mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=../install/ ..
-cmake --build . --target install
+cmake -S . -B build -DCMAKE_INSTALL_PREFIX=../install
+cmake --build build --target install
 ```
 
 This will build and install the library to a new folder called `install/` in your library root directory. Now suppose we have our application sitting right next to the library folder (much like the folder layout in each of the [Examples](/examples)). If we would like to consume the library using `find_package` we need to tell CMake where to look. We do this using `-DCMAKE_PREFIX_PATH=<path/to/install/>`
 
 ```bash
 cd <your/app/root> # where app root CMakeLists.txt is
-mkdir build && cd build
-cmake -DCMAKE_PREFIX_PATH=$(pwd)/../../library/install/ ..
-cmake --build .
+cmake -S . -B build -DCMAKE_PREFIX_PATH=$(pwd)/../../library/install/
+cmake --build build
 ```
 
 Because `CMAKE_PREFIX_PATH` only accepts an absolute path we can use a neat trick with `$(pwd)` (the Windows equivalent is `%cd%`) to give us the full path to where we are running from and then build a relative path from there.

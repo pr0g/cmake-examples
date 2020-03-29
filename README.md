@@ -82,8 +82,8 @@ In your code you can then use this define for some sort of conditional compilati
 And when invoking `cmake` you can pass a CMake variable like so if you want that macro to be defined.
 
 ```bash
-# from the build/ folder
-cmake -DYOUR_DEFINE ..
+# from the src/ folder
+cmake -S . -B build -DYOUR_DEFINE
 ```
 
 If you don't pass the variable then the generator expression will evaluate to false and no define will be added.

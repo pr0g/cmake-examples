@@ -20,13 +20,12 @@ If you take a look at the `CMakeLists.txt` file in this directory there are some
 
 ```bash
 cd <root>/examples/more/static-auto-install/application/
-mkdir build && cd build
 # if *nix/macOS
-cmake -DDEV_LIB_DIR="<root>/examples/core/static/library/" ..
+cmake -S . -B build -DDEV_LIB_DIR="<root>/examples/core/static/library/"
 # elseif Windows
-cmake -G "Visual Studio 15 2017 Win64" -DDEV_LIB_DIR="<root>/examples/core/static/library/" .. # or whatever VS version you have
+cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -DDEV_LIB_DIR="<root>/examples/core/static/library/" # or whatever VS version you have
 # endif
-cmake --build .
+cmake --build build
 ```
 
 ## Caveats

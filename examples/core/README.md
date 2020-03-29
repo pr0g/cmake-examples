@@ -6,7 +6,7 @@ There are four folders, each containing a library, and an application that uses 
 
 The lion's share of the comments are in the _header-only_ folder as that's the first of the four I created and the simplest of the bunch. Each `CMakeLists.txt` file for each library (_header-only_, _static_, _shared_ and _shared\_export_) contain a bunch of the same commands so I only explain them during their first use (mostly...) so do start with _header-only_ if you want to read through them. The recommended order would be _header-only_, _static_, _shared_/_shared\_export_.
 
-_NOTE_: The fourth project, _shared-export_, is very similar to _shared_ except it makes use of the `generate_export_header` command. This generates a file containing the export macros required when exporting functions from a _dll_. The `CMakeLists.txt` file for the library is modified slightly as well as the sample application which uses different macros/defines.
+_NOTE_: The fourth project, _shared-export_, is very similar to _shared_ except it makes use of the `generate_export_header` command. This generates a file containing the export macros required when exporting functions from a _dll_. The `CMakeLists.txt` file for the library is modified slightly as well as the sample application which uses different defines.
 
 ## Disclaimer
 
@@ -20,43 +20,40 @@ Taking _header-only_ as an example:
 
 ```bash
 cd <root>/examples/core/header-only/library/
-mkdir build && cd build
 # if *nix/macOS
-cmake ..
+cmake -S . -B build
 # elseif Windows
-cmake -G "Visual Studio 15 2017 Win64" .. # or whatever VS version you have
+cmake -S . -B build -G "Visual Studio 16 2019" -A x64 # or whatever VS version you have
 # endif
-cmake --build . --target install
+cmake --build build --target install
 ```
 
 This will install the library to the default location (e.g. `/usr/local/include/calculator` for *nix/macOS or `C:\Program Files\calculator` on Windows). If you want to install the library to a custom location you must use `CMAKE_INSTALL_PREFIX`.
 
 ```bash
 cd <root>/examples/core/header-only/library/
-mkdir build && cd build
 # if *nix/macOS
-cmake -DCMAKE_INSTALL_PREFIX="<path/to/install/>" ..
+cmake -S . -B build -DCMAKE_INSTALL_PREFIX="<path/to/install/>"
 # elseif Windows
-cmake -G "Visual Studio 15 2017 Win64" -DCMAKE_INSTALL_PREFIX="<path/to/install/>" ..
+cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -DCMAKE_INSTALL_PREFIX="<path/to/install/>"
 # endif
-cmake --build . --target install
+cmake --build build --target install
 ```
 
 To then build the application, `cd` to the _application_ folder and run these commands
 
 ```bash
 cd <root>/examples/core/header-only/application/
-mkdir build && cd build
 # if *nix/macOS
-cmake ..
+cmake -S . -B build
 # elseif Windows
-cmake -G "Visual Studio 15 2017 Win64" .. # or whatever VS version you have
+cmake -S . -B build -G "Visual Studio 16 2019" -A x64 # or whatever VS version you have
 # endif
-cmake --build .
+cmake --build build
 # if *nix/macOS
-./calculator-app
+./build/calculator-app
 # elseif Windows
-.\Debug\calculator-app.exe
+.\build\Debug\calculator-app.exe
 # endif
 10
 ```
@@ -65,23 +62,46 @@ If you had previously changed the install location, you must tell CMake where to
 
 ```bash
 cd <root>/examples/core/header-only/application/
-mkdir build && cd build
 # if *nix/macOS
-cmake -DCMAKE_PREFIX_PATH=<absolute/path/to/installed/lib/> ..
+cmake -S . -B build -DCMAKE_PREFIX_PATH=<absolute/path/to/installed/lib/>
 # elseif Windows
-cmake -G "Visual Studio 15 2017 Win64" -DCMAKE_PREFIX_PATH=<absolute/path/to/installed/lib/> ..
+cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -DCMAKE_PREFIX_PATH=<absolute/path/to/installed/lib/>
 # endif
-cmake --build .
+cmake --build build
 # as before for running...
 ```
 
 Notice for `CMAKE_PREFIX_PATH` you must use an absolute path not a relative path from the build folder you're in. You can use a relative path when setting `CMAKE_INSTALL_PREFIX` if you wish.
 
-### Miscellaneous
+### Local Custom Install Example
+
+For all of the library/application pairs, one potential set of commands to build, install and use the library locally are as follows:
+
+```bash
+# library
+
+cd path/to/library
+# set install/ location to be a sibling of the build/ folder
+cmake -S . -B build -DCMAKE_INSTALL_PREFIX=install
+# build and install the library
+cmake --build build --target install
+
+# --------------------------------------------------------------------------
+
+# application
+
+cd path/to/application
+# use a 'sudo' relative path to look in the neighboring library install folder
+cmake -S . -B build -DCMAKE_PREFIX_PATH=$(pwd)/../library/install
+# build the application
+cmake --build build
+```
+
+## Miscellaneous
 
 Some additional notes about the `CMakeLists.txt` files and CMake in general that might be useful.
 
-#### Windows
+### Windows
 
 - When installing to the default location on Windows (`C:\Program Files\<lib>`) you'll need to run `cmd.exe` (or [`cmder.exe`]((https://cmder.net/)) because it's 100% more awesome) as Administrator, or you'll get a bunch of errors about permissions and not being able to create new files in that location.
 
@@ -99,13 +119,13 @@ C:\Program Files\a-useful-library\
 
 It's therefore best to keep the `project` name the same as the `export` name to ensure `find_package` works correctly.
 
-#### Aliases
+### Aliases
 
 The namespace alias does not have to be the same name as the library or export name
 
 - e.g. export: calculator-config, library: calculator, namespace: bob
 
-#### Install Interface
+### Install Interface
 
 In the `CMakeLists.txt` file
 
