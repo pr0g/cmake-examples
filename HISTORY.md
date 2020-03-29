@@ -4,6 +4,11 @@
 
 - Updated guidance on CMake `--verbose` flag
 - Updated info about `CMAKE_EXPORT_COMPILE_COMMANDS`
+- Updated CMakeLists.txt files to require CMake 3.13
+- Updated CMakeLists.txt files to use `target_sources`
+- Added more CMake YouTube videos to the root README
+- Updated Visual Studio examples to use 2019 instead of 2017
+- A few other minor tweaks in the README files
 
 ## 24th October 2019
 

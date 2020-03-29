@@ -213,6 +213,8 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 
 ### YouTube
 
+* [Oh No! More Modern CMake - Deniz Bahadir - Meeting C++ 2019](https://youtu.be/y9kSr5enrSk)
+* [More Modern CMake - Deniz Bahadir - Meeting C++ 2018](https://youtu.be/y7ndUhdQuU8)
 * [CppCon 2019: Craig Scott “Deep CMake for Library Authors”](https://www.youtube.com/watch?v=m0DwB4OvDXk)
 * [C++Now 2017: Daniel Pfeifer “Effective CMake"](https://youtu.be/bsXLMQ6WgIk)
 * [CMake for Dummies](https://youtu.be/7W4Q-XLnMaA)
