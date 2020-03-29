@@ -1,5 +1,10 @@
 # History
 
+## 29th March 2020
+
+- Updated guidance on CMake `--verbose` flag
+- Updated info about `CMAKE_EXPORT_COMPILE_COMMANDS`
+
 ## 24th October 2019
 
 - Small updates to `shared` and `shared-export` libraries to include RUNTIME and ARCHIVE locations (CMake picks sensible defaults in later versions but this provides more customization points for users)
