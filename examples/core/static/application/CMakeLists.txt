@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.13)
 
-project(cmake-application-example VERSION 0.0.1 LANGUAGES CXX)
+project(calculator-app VERSION 0.0.1 LANGUAGES CXX)
 
 find_package(calculator-static REQUIRED)
 
-add_executable(calculator-app main.cpp)
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME} PRIVATE main.cpp)
 
-target_link_libraries(calculator-app PUBLIC calculator-static::calculator-static)
+target_link_libraries(${PROJECT_NAME} PUBLIC calculator-static::calculator-static)

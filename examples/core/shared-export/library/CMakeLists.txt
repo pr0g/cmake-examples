@@ -1,8 +1,9 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.13)
 
 project(calculator-shared-export VERSION 0.0.1 LANGUAGES CXX)
 
-add_library(calculator-shared-export SHARED src/calculator.cpp)
+add_library(${PROJECT_NAME} SHARED)
+target_sources(${PROJECT_NAME} PRIVATE src/calculator.cpp)
 
 include(GNUInstallDirs)
 
@@ -13,37 +14,37 @@ include(GNUInstallDirs)
 # the command must be included in double quotes so the two directories,
 # separated by a ';' can both be used (cmake needs it to be a string)
 target_include_directories(
-    calculator-shared-export PUBLIC
+    ${PROJECT_NAME} PUBLIC
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/;${CMAKE_CURRENT_BINARY_DIR}/>"
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 # generates header to provide export macros for library
 include(GenerateExportHeader)
 generate_export_header(
-    calculator-shared-export
+    ${PROJECT_NAME}
     BASE_NAME Calc)
 
 # specify the target to install (calculator library defined above)
 # set the export name <name>-config (does not need to match target name)
 # also specify where the .dylib/.so/.dll+.lib file should be installed
 install(
-    TARGETS calculator-shared-export
-    EXPORT calculator-shared-export-config
+    TARGETS ${PROJECT_NAME}
+    EXPORT ${PROJECT_NAME}-config
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 install(
-    EXPORT calculator-shared-export-config
-    NAMESPACE calculator-shared-export::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/calculator-shared-export)
+    EXPORT ${PROJECT_NAME}-config
+    NAMESPACE ${PROJECT_NAME}::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 
 install(
     DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/calculator-shared-export)
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
 
 # copy the generated export file to the include install location
 install(
     FILES ${CMAKE_CURRENT_BINARY_DIR}/calc_export.h
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/calculator-shared-export
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
 )

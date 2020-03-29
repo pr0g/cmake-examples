@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.13)
 
 # set the name of the project and also specify the version, we'll use
 # this later by accessing it through the ${PROJECT_VERSION} variable
@@ -7,8 +7,10 @@ project(useless VERSION 1.0.0 LANGUAGES CXX)
 # add two libraries (targets) - this is done to demonstrate how to
 # have multiple libraries per project (and then access them through
 # the namespace defined later when installing)
-add_library(calculator-static src/calculator.cpp)
-add_library(writer-static src/writer.cpp)
+add_library(calculator-static)
+target_sources(calculator-static PRIVATE src/calculator.cpp)
+add_library(writer-static)
+target_sources(writer-static PRIVATE src/writer.cpp)
 
 # bring in useful functionality (GNU standard install directories
 # and helper functions for creating config files)

@@ -1,9 +1,12 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.13)
 
 project(useless VERSION 2.0.0 LANGUAGES CXX)
 
-add_library(calculator-static src/calculator.cpp)
-add_library(writer-static src/writer.cpp)
+add_library(calculator-static)
+target_sources(calculator-static PRIVATE src/calculator.cpp)
+
+add_library(writer-static)
+target_sources(writer-static PRIVATE src/writer.cpp)
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
