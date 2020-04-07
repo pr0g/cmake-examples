@@ -1,10 +1,12 @@
 #include <iostream>
 
-#include "greetings/hello/hello.h"
-#include "greetings/goodbye/goodbye.h"
+#include "phrases/hello/hello.h"
+#include "phrases/hey/hey.h"
+#include "phrases/goodbye/goodbye.h"
 
 int main(int argc, const char** argv) {
-    std::cout << hello_message() << " "
+    std::cout << hey_message() << " "
+              << hello_message() << " "
               << goodbye_message() << "\n";
     return 0;
 }
