@@ -1,5 +1,10 @@
 # History
 
+## 7th April 2020
+
+- Added example of using CMake Components in More section
+- Added `%cd%` as well as `$(pwd)` to example install instructions
+
 ## 29th March 2020
 
 - Updated guidance on CMake `--verbose` flag
