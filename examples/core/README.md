@@ -91,8 +91,14 @@ cmake --build build --target install
 # application
 
 cd path/to/application
+
 # use a 'sudo' relative path to look in the neighboring library install folder
+# if *nix/macOS
 cmake -S . -B build -DCMAKE_PREFIX_PATH=$(pwd)/../library/install
+# elseif Windows
+cmake -S . -B build -DCMAKE_PREFIX_PATH=%cd%/../library/install
+# endif
+
 # build the application
 cmake --build build
 ```
