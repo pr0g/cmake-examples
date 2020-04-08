@@ -8,7 +8,7 @@ project(calculator-app VERSION 0.0.1 LANGUAGES CXX)
 
 # find_package will find everything that is required to use
 # the calculator library (include paths, libs if required etc..)
-find_package(calculator REQUIRED)
+find_package(calculator REQUIRED CONFIG)
 
 # add an executable target
 add_executable(${PROJECT_NAME})

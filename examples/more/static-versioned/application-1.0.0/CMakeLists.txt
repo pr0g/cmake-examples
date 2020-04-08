@@ -7,7 +7,7 @@ project(calculator-app VERSION 0.0.1 LANGUAGES CXX)
 # note: if you pass EXACT after the version number find_package will
 # fail if the requested version does not exactly match the installed version
 # for example you might really want version 1.2.14 an none other will do
-find_package(useless 1.0.0 REQUIRED)
+find_package(useless 1.0.0 REQUIRED CONFIG)
 
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE main.cpp)

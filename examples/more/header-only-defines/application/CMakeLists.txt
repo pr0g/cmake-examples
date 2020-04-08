@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 project(color-app VERSION 0.0.1 LANGUAGES CXX)
 
-find_package(favorite-color REQUIRED)
+find_package(favorite-color REQUIRED CONFIG)
 
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE main.cpp)

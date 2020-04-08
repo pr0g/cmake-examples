@@ -19,7 +19,7 @@ include(autoinstall.cmake)
 # install the library being actively developed alongside the application
 install_it(${DEV_LIB_DIR})
 
-find_package(calculator-static REQUIRED)
+find_package(calculator-static REQUIRED CONFIG)
 
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE main.cpp)
