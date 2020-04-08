@@ -1,6 +1,6 @@
 # set the minimum required version of cmake to use
 # needed to set version and policy settings before invoking other commands
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.15)
 
 # set the name of the project
 # must immediately follow cmake_minimum_required command

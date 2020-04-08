@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.15)
 
 # set the name of the project and also specify the version, we'll use
 # this later by accessing it through the ${PROJECT_VERSION} variable
