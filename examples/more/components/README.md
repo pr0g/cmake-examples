@@ -1,23 +1,22 @@
-# CMake Components
+# CMake `find_package` COMPONENTS
 
 This is a small example of adding support for components to CMake libraries.
 
 This is the functionality where you can specify individual components after the CMake `find_package` command.
 
-
 ```bash
-find_package(CoolLib REQUIRED CONFIG COMPONENTS shades)
+find_package(CoolLib REQUIRED CONFIG COMPONENTS shades leather-jacket)
 ```
 
-After doing a bunch of reading about the `COMPONENT` keyword in the `install` command and after doing a number of experiments I can't seem to see how it makes any difference whatsoever (if you're a CMake expert reading this please let me know! 😆) so I'm not currently using it in these examples.
-
-The way it works is through carefully configuring the `-config.cmake` files.
+The way it works is through carefully configuring the `<package>-config.cmake` files.
 
 In the example I intentionally use a different name for the component than for the library to show it's possible but it can also be the same (which might make more sense depending on the situation).
 
 Be sure to check out `phrases-config.cmake.in` to see how the sub-components are setup.
 
 It's possible to test out the examples by first building and installing the library (`configure.bat` and `build.bat` in the library folder) and then building the application (`configure.bat` and `build.bat` in the application folder).
+
+__Note__: `COMPONENTS` in the context of the `find_package` command (in the _application_) is something completely different to `COMPONENT` in the `install` command (in the _library_). This really confused me so I hope this helps clarify things for anyone else.
 
 ## Special Thanks
 
