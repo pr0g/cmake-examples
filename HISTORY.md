@@ -1,5 +1,9 @@
 # History
 
+## 9th April 2020
+
+- Updated CMakeLists.txt files to require CMake 3.15
+
 ## 7th April 2020
 
 - Added example of using CMake Components in More section
