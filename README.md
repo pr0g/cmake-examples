@@ -55,11 +55,13 @@ to actually build your project.
 You should absolutely use `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON` when generating your project to have CMake create a `compile_commands.json` file for you. This is useful for all sorts of tools (`clang-tidy`, `cppcheck`, `oclint`, `include-what-you-use` etc. etc...).
 
 ```bash
-# from the build/ folder
-cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+# when configuring from the root CMakeLists.txt of your project
+cmake -S . -B build/ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 ```
 
 > Note: `CMAKE_EXPORT_COMPILE_COMMANDS` is only supported for _Make_ and _Ninja_ generators. The good news is it's pretty simple to use _Ninja_ on Windows in place of _Visual Studio_/_MSBuild_ - for instructions please see [this repo](https://github.com/pr0g/clang-experiments#ninja).
+>
+> __TLDR__: Add `-G Ninja` to the above command to use _Ninja_.
 
 ### Defines
 
@@ -82,8 +84,8 @@ In your code you can then use this define for some sort of conditional compilati
 And when invoking `cmake` you can pass a CMake variable like so if you want that macro to be defined.
 
 ```bash
-# from the src/ folder
-cmake -S . -B build -DYOUR_DEFINE
+# from the src/ (root) folder
+cmake -S . -B build/ -DYOUR_DEFINE
 ```
 
 If you don't pass the variable then the generator expression will evaluate to false and no define will be added.
@@ -93,11 +95,15 @@ If you don't pass the variable then the generator expression will evaluate to fa
 Sometimes when building with CMake to diagnose an issue you might want more info about exactly what's being compiled. You can see everything that's passed to the compiler when building with the `--verbose` (`-v`) flag.
 
 ```bash
-# from the build/ folder
-cmake --build . -v
+# from the src/ (root) folder
+cmake --build build/ -v
 ```
 
 This works for an array of generators (_Make, Visual Studio, Ninja_ etc.).
+
+### CONFIG
+
+You'll notice all of the `find_package` commands include the `CONFIG` keyword after the package name (and `REQUIRED`). This is to let CMake know we're explicitly using a CMake `<package>-config.cmake` file and not a FindModule command (all these examples use the more modern config approach so including `CONFIG` in the `find_package` command should be preferred).
 
 ## CMake Resources
 
