@@ -9,7 +9,6 @@ include(GNUInstallDirs)
 # hello library/target
 add_library(hello)
 target_sources(hello PRIVATE hello/hello.cpp)
-
 target_include_directories(
     hello PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/hello/include/>
@@ -17,22 +16,16 @@ target_include_directories(
 
 install(
     TARGETS hello
-    EXPORT ${PROJECT_NAME}-greetings-config
+    EXPORT greetings-config
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 install(
     DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/hello/include/
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}/hello)
-
-install(
-    EXPORT ${PROJECT_NAME}-greetings-config
-    NAMESPACE ${PROJECT_NAME}::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}/greetings/hello)
 
 # hey library/target
 add_library(hey)
 target_sources(hey PRIVATE hey/hey.cpp)
-
 target_include_directories(
     hey PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/hey/include/>
@@ -40,15 +33,17 @@ target_include_directories(
 
 install(
     TARGETS hey
-    EXPORT ${PROJECT_NAME}-greetings-config
+    EXPORT greetings-config
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 install(
     DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/hey/include/
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}/hey)
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}/greetings/hey)
 
+################################################################################
+# export greetings-config file for all associated targets
 install(
-    EXPORT ${PROJECT_NAME}-greetings-config
+    EXPORT greetings-config
     NAMESPACE ${PROJECT_NAME}::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 
@@ -58,7 +53,6 @@ install(
 # goodbye library/target
 add_library(goodbye)
 target_sources(goodbye PRIVATE goodbye/goodbye.cpp)
-
 target_include_directories(
     goodbye PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/goodbye/include/>
@@ -66,15 +60,17 @@ target_include_directories(
 
 install(
     TARGETS goodbye
-    EXPORT ${PROJECT_NAME}-farewells-config
+    EXPORT farewells-config
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 install(
     DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/goodbye/include/
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}/goodbye)
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}/farewells/goodbye)
 
+################################################################################
+# export farewells-config file for all associated targets
 install(
-    EXPORT ${PROJECT_NAME}-farewells-config
+    EXPORT farewells-config
     NAMESPACE ${PROJECT_NAME}::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 

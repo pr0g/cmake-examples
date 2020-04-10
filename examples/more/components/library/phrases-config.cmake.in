@@ -1,3 +1,3 @@
 foreach(component ${@PROJECT_NAME@_FIND_COMPONENTS})
-    include(${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@-${component}-config.cmake)
+    include(${CMAKE_CURRENT_LIST_DIR}/${component}-config.cmake)
 endforeach()

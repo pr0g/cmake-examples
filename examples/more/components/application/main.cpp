@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "phrases/hello/hello.h"
-#include "phrases/hey/hey.h"
-#include "phrases/goodbye/goodbye.h"
+#include "phrases/greetings/hello/hello.h"
+#include "phrases/greetings/hey/hey.h"
+#include "phrases/farewells/goodbye/goodbye.h"
 
 int main(int argc, const char** argv) {
     std::cout << hey_message() << " "
