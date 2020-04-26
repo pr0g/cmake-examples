@@ -3,6 +3,7 @@
 ## 26th April 2020
 
 - Included `DEBUG_POSTFIX` section in README.md
+- Added `DEBUG_POSTFIX` to examples/core/static project
 
 ## 10th April 2020
 
