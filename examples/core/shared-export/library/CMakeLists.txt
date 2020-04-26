@@ -46,5 +46,4 @@ install(
 # copy the generated export file to the include install location
 install(
     FILES ${CMAKE_CURRENT_BINARY_DIR}/calc_export.h
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
-)
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
