@@ -15,6 +15,13 @@ target_include_directories(
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
+# this command will append "d" to the name of the debug version of
+# the library - this is very helpful when installing as it ensures
+# the debug and release version of library can be installed to the
+# same location and will not conflict (overwrite each other)
+set_target_properties(
+    ${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX "d")
+
 # specify the target to install (calculator-static library defined above)
 # set the export name <name>-config (does not need to match target name)
 # also specify where the .lib file should be installed
