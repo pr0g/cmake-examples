@@ -105,6 +105,17 @@ This works for an array of generators (_Make, Visual Studio, Ninja_ etc.).
 
 You'll notice all of the `find_package` commands include the `CONFIG` keyword after the package name (and `REQUIRED`). This is to let CMake know we're explicitly using a CMake `<package>-config.cmake` file and not a FindModule command (all these examples use the more modern config approach so including `CONFIG` in the `find_package` command should be preferred).
 
+### DEBUG_POSTFIX
+
+It is possible to set a property called `DEBUG_POSTFIX` on a given target to have a string appended to the name of the debug version of the library (usually `d` or `-debug`, but as far as I know it can be anything).
+
+```cmake
+set_target_properties(
+    ${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX "d")
+```
+
+This is incredibly useful when installing libraries as it means if you build and install the `Debug` configuration and then build and install the `Release` configuration, the `Debug` version of the library won't be overridden (you'll just have `your-libraryd.lib` and `your-library.lib`) in the `lib/` folder. This works for single and multi-config generators.
+
 ## CMake Resources
 
 I've been attempting to learn CMake for a while and have built up quite a list of articles/blogs/documentation that have helped inform my understanding up to this point. Please see them listed below (mainly for my benefit so I have them all in one place).

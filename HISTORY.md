@@ -1,5 +1,9 @@
 # History
 
+## 26th April 2020
+
+- Included `DEBUG_POSTFIX` section in README.md
+
 ## 10th April 2020
 
 - Updated README.md for more/components example section
