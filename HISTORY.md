@@ -4,6 +4,7 @@
 
 - Add `.bat` files for all examples/core projects
 - Add a new example project to examples/more to demonstrate `FetchContent`
+- Updated README.md with some information about `FetchContent` and additional links
 
 ## 26th April 2020
 
