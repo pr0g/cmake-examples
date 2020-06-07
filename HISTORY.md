@@ -3,6 +3,7 @@
 ## 7th June 2020
 
 - Add `.bat` files for all examples/core projects
+- Add a new example project to examples/more to demonstrate `FetchContent`
 
 ## 26th April 2020
 
