@@ -18,6 +18,9 @@ target_include_directories(
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/;${CMAKE_CURRENT_BINARY_DIR}/>"
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
+set_target_properties(
+    ${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX "d")
+
 # generates header to provide export macros for library
 include(GenerateExportHeader)
 generate_export_header(

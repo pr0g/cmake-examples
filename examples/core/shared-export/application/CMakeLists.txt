@@ -7,7 +7,8 @@ find_package(calculator-shared-export REQUIRED CONFIG)
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC calculator-shared-export::calculator-shared-export)
+target_link_libraries(
+    ${PROJECT_NAME} PUBLIC calculator-shared-export::calculator-shared-export)
 
 if (WIN32)
 # copy the .dll file to the same folder as the executable
