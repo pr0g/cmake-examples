@@ -116,6 +116,14 @@ set_target_properties(
 
 This is incredibly useful when installing libraries as it means if you build and install the `Debug` configuration and then build and install the `Release` configuration, the `Debug` version of the library won't be overridden (you'll just have `your-libraryd.lib` and `your-library.lib`) in the `lib/` folder. This works for single and multi-config generators.
 
+### FetchContent
+
+`FetchContent` is a relatively new addition to CMake and seems like in certain contexts it can be extremely useful.
+
+Instead of downloading, building and installing a library as an entirely separate project, you can use `FetchContent` to make the dependency part of your build. In my limited experience this seems super useful for small libraries where the cost to building them is pretty small or non-existent (e.g. a header-only library) but perhaps less so for a large dependency. The problem with using `FetchContent` for a larger library is if you want to do a clean build for your project, you'll have to build all dependencies again too (as the library gets added to a `_deps` folder in your `build/` folder). You might not always want this so use with care, however it does seem like a useful tool for certain situations.
+
+Check out the [fetch-content](examples/more/fetch-content) example for a simple demonstration using the commands and see the links below by Sascha Offe, Kuba Sejdak and Michael Hirsch for more information.
+
 ## CMake Resources
 
 I've been attempting to learn CMake for a while and have built up quite a list of articles/blogs/documentation that have helped inform my understanding up to this point. Please see them listed below (mainly for my benefit so I have them all in one place).
@@ -186,6 +194,12 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
   * [Learn CMake's Scripting Language in 15 Minutes](https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/)
 * Sam Thursfield
   * [CMake: dependencies between targets and files and custom commands](https://samthursfield.wordpress.com/2015/11/21/cmake-dependencies-between-targets-and-files-and-custom-commands/)
+* Sascha Offe
+  * [Using CMake with External Projects](http://www.saoe.net/blog/using-cmake-with-external-projects/)
+* Kuba Sejdak
+  * [How to join repositories in CMake](https://kubasejdak.com/how-to-join-repositories-in-cmake)
+* Michael Hirsch, Ph.D.
+  * [CMake FetchContent vs. ExternalProject](https://www.scivision.dev/cmake-fetchcontent-vs-external-project/)
 
 ### Documentation
 
@@ -202,6 +216,7 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
 * [function](https://cmake.org/cmake/help/latest/command/function.html)
 * [set](https://cmake.org/cmake/help/latest/command/set.html)
 * [ExternalProject](https://cmake.org/cmake/help/latest/module/ExternalProject.html)
+* [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html)
 * [CMakePackageConfigHelpers](https://cmake.org/cmake/help/latest/module/CMakePackageConfigHelpers.html)
 * [CMAKE_PREFIX_PATH](https://cmake.org/cmake/help/latest/variable/CMAKE_PREFIX_PATH.html#variable:CMAKE_PREFIX_PATH)
 * [CMAKE_INSTALL_PREFIX](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html)
