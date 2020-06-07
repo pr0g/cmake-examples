@@ -1,5 +1,9 @@
 # History
 
+## 7th June 2020
+
+- Add `.bat` files for all examples/core projects
+
 ## 26th April 2020
 
 - Included `DEBUG_POSTFIX` section in README.md
