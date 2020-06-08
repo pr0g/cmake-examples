@@ -8,9 +8,15 @@ The lion's share of the comments are in the _header-only_ folder as that's the f
 
 _NOTE_: The fourth project, _shared-export_, is very similar to _shared_ except it makes use of the `generate_export_header` command. This generates a file containing the export macros required when exporting functions from a _dll_. The `CMakeLists.txt` file for the library is modified slightly as well as the sample application which uses different defines.
 
-## Disclaimer
+### Update
 
-I'm not (yet) including info about how to specify build configurations (Debug/Release etc...). By default all these projects will build in Debug both on *nix/macOS and Windows. Expect an updated project to detail these steps hopefully in the not too distant future. I do mention build configurations in the [installing](/installing/README.md) section so there's some information regarding it there.
+There are now `.bat` and `.sh` scripts for each configure, install and build step. In one of the `library` folders, first run `configure.(sh/bat)` and then `install.(sh/bat)`. Then for the corresponding `application` folder run `configure.(sh/bat)` and `build.(sh/bat)`. These scripts should hopefully give some added context for the kind of commands you'll run from your terminal when using CMake.
+
+In all of the shell/batch scripts I've chosen to use the `Ninja` generator as it is the same across Windows/macOS/Linux (the Visual Studio generators are a bit different as they are what's called multi-config generators - with them you don't need to specify `-DCMAKE_BUILD_TYPE` during the configure step and can instead use `--config <Debug/Release/etc>` at build time). To keep things slightly simpler I've just stuck with Ninja so the commands are more less equivalent regardless of the platform.
+
+Each configure step produces a `Debug` and `Release` build and the `CMakeLists.txt` files for the library make use of `DEBUG_POSTFIX` so both the `Debug` and `Release` version of the library can be installed to the same location.
+
+Finally a custom install location is provided (`CMAKE_INSTALL_PREFIX`) so the libraries aren't installed to the system. When building each application we point them to the relevant location (`CMAKE_PREFIX_PATH`) using a pseudo relative path.
 
 ## Usage
 
