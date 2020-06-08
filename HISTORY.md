@@ -1,5 +1,9 @@
 # History
 
+## 8th June 2020
+
+- Add `.sh` files for all examples/core projects
+
 ## 7th June 2020
 
 - Add `.bat` files for all examples/core projects
