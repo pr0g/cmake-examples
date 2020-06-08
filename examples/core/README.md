@@ -12,7 +12,7 @@ _NOTE_: The fourth project, _shared-export_, is very similar to _shared_ except 
 
 There are now `.bat` and `.sh` scripts for each configure, install and build step. In one of the `library` folders, first run `configure.(sh/bat)` and then `install.(sh/bat)`. Then for the corresponding `application` folder run `configure.(sh/bat)` and `build.(sh/bat)`. These scripts should hopefully give some added context for the kind of commands you'll run from your terminal when using CMake.
 
-In all of the shell/batch scripts I've chosen to use the `Ninja` generator as it is the same across Windows/macOS/Linux (the Visual Studio generators are a bit different as they are what's called multi-config generators - with them you don't need to specify `-DCMAKE_BUILD_TYPE` during the configure step and can instead use `--config <Debug/Release/etc>` at build time). To keep things slightly simpler I've just stuck with Ninja so the commands are more less equivalent regardless of the platform.
+In all of the shell/batch scripts I've chosen to use the `Ninja` generator as it is the same across Windows/macOS/Linux (the Visual Studio generators are a bit different as they are what's called multi-config generators - with them you don't need to specify `CMAKE_BUILD_TYPE` during the configure step and can instead use `--config <Debug/Release/etc>` at build time). To keep things slightly simpler I've just stuck with `Ninja` so the commands are more less equivalent regardless of the platform.
 
 Each configure step produces a `Debug` and `Release` build and the `CMakeLists.txt` files for the library make use of `DEBUG_POSTFIX` so both the `Debug` and `Release` version of the library can be installed to the same location.
 
@@ -81,7 +81,7 @@ Notice for `CMAKE_PREFIX_PATH` you must use an absolute path not a relative path
 
 ### Local Custom Install Example
 
-For all of the library/application pairs, one potential set of commands to build, install and use the library locally are as follows:
+For all of the library/application pairs, one potential set of commands to build, install and use the library locally are as follows (this is now the approach followed in all the `.sh/.bat` scripts):
 
 ```bash
 # library
@@ -98,7 +98,7 @@ cmake --build build --target install
 
 cd path/to/application
 
-# use a 'sudo' relative path to look in the neighboring library install folder
+# use a 'pseudo' relative path to look in the neighboring library install folder
 # if *nix/macOS
 cmake -S . -B build -DCMAKE_PREFIX_PATH=$(pwd)/../library/install
 # elseif Windows
