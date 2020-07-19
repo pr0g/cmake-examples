@@ -19,7 +19,6 @@ add_library(writer-static)
 target_sources(writer-static PRIVATE src/writer.cpp)
 set_target_properties(writer-static PROPERTIES DEBUG_POSTFIX "d")
 
-
 # bring in useful functionality (GNU standard install directories
 # and helper functions for creating config files)
 include(GNUInstallDirs)
