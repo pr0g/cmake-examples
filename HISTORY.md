@@ -4,6 +4,7 @@
 
 - Rename branch
 - Add `.bat` scripts for static-versioned library in examples/more
+- Add `.cmake-format.yml` file and auto-format all `CMakeLists.txt` files
 
 ## 8th June 2020
 
