@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(color-app VERSION 0.0.1 LANGUAGES CXX)
+project(
+    color-app
+    VERSION 0.0.1
+    LANGUAGES CXX)
 
 find_package(favorite-color REQUIRED CONFIG)
 

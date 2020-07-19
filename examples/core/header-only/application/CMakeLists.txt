@@ -4,7 +4,10 @@ cmake_minimum_required(VERSION 3.15)
 
 # set the name of the project
 # must immediately follow cmake_minimum_required command
-project(calculator-app VERSION 0.0.1 LANGUAGES CXX)
+project(
+    calculator-app
+    VERSION 0.0.1
+    LANGUAGES CXX)
 
 # find_package will find everything that is required to use
 # the calculator library (include paths, libs if required etc..)
