@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(calculator-app VERSION 0.0.1 LANGUAGES CXX)
+project(
+    calculator-app
+    VERSION 0.0.1
+    LANGUAGES CXX)
 
 # find the package (library/libraries) we want while also specifying
 # the version to ensure we get the specific version we need
@@ -14,4 +17,5 @@ target_sources(${PROJECT_NAME} PRIVATE main.cpp)
 
 # link our application against the libraries we're
 # using contained in the "useless" package
-target_link_libraries(${PROJECT_NAME} PUBLIC useless::calculator-static useless::writer-static)
+target_link_libraries(${PROJECT_NAME} PUBLIC useless::calculator-static
+                                             useless::writer-static)
