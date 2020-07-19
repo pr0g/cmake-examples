@@ -1,5 +1,9 @@
 # History
 
+## 19th July 2020
+
+- Rename branch
+
 ## 8th June 2020
 
 - Add `.sh` files for all examples/core projects
