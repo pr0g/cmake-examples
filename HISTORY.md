@@ -3,6 +3,7 @@
 ## 19th July 2020
 
 - Rename branch
+- Add `.bat` scripts for static-versioned library in examples/more
 
 ## 8th June 2020
 
