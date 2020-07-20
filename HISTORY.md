@@ -6,6 +6,7 @@
 - Add `.bat` scripts for static-versioned library in examples/more
 - Add `.cmake-format.yml` file and auto-format all `CMakeLists.txt` files
 - Add simple script to run `cmake-format` across all `CMakeLists.txt` files
+- Add `.sh` scripts for static-versioned library in examples/more
 
 ## 8th June 2020
 
