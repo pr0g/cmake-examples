@@ -1,4 +1,4 @@
-# Modern CMake Examples
+# Modern CMake Examples [![Mentioned in Awesome CMake](https://awesome.re/mentioned-badge.svg)](https://github.com/onqtam/awesome-cmake)
 
 ## Overview
 
