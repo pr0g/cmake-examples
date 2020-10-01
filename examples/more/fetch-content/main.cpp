@@ -16,7 +16,7 @@ enum class Key
 template<>
 struct bec::EnableBitMaskOperators<Key>
 {
-    static const bool enable = true;
+    static const bool Enable = true;
 };
 
 enum class Team
@@ -33,7 +33,7 @@ enum class Team
 template<>
 struct bec::EnableBitMaskOperators<Team>
 {
-    static const bool enable = true;
+    static const bool Enable = true;
 };
 
 // simple example program using bitfield-enum-class library
