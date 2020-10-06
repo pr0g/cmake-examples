@@ -8,11 +8,10 @@ include(ExternalProject)
 # The parent script needs to define the "GLOBAL_OUTPUT_PATH" variable,
 # which will be used as output directory for all *.lib, *.dll, *.a, *.so, *.pdb files.
 
-set(EXTERNAL_LIB       catch2)
 set(CATCH2_ROOT        ${GLOBAL_OUTPUT_PATH}/catch2)
 set(CATCH2_INCLUDE_DIR ${CATCH2_ROOT}/include)
 
-message(INFO "ExternalProject_Add() - ${EXTERNAL_LIB} - building ${CMAKE_BUILD_TYPE}")
+message(INFO "ExternalProject_Add() - catch2 - building ${CMAKE_BUILD_TYPE}; CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}")
 
 ExternalProject_Add(
     CATCH2_external
@@ -21,7 +20,7 @@ ExternalProject_Add(
     GIT_TAG  "v2.13.0"
     GIT_PROGRESS TRUE
 
-    SOURCE_DIR "${CMAKE_SOURCE_DIR}/3rdparty/catch2"
+    SOURCE_DIR "${CMAKE_BINARY_DIR}/3rdparty/catch2"
     CMAKE_ARGS 
         -DCATCH_BUILD_TESTING=OFF
         -DCATCH_INSTALL_DOCS=OFF

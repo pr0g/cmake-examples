@@ -6,12 +6,11 @@ include(ExternalProject)
 # The parent script needs to define the "GLOBAL_OUTPUT_PATH" variable,
 # which will be used as output directory for all *.lib, *.dll, *.a, *.so, *.pdb files.
 
-set(EXTERNAL_LIB        restbed)
 set(RESTBED_ROOT        ${GLOBAL_OUTPUT_PATH}/restbed)
 set(RESTBED_LIB_DIR     ${RESTBED_ROOT}/library)
 set(RESTBED_INCLUDE_DIR ${RESTBED_ROOT}/include)
 
-message(INFO "ExternalProject_Add() - ${EXTERNAL_LIB} - building ${CMAKE_BUILD_TYPE}")
+message(INFO "ExternalProject_Add() - restbed - building ${CMAKE_BUILD_TYPE}; CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}")
 
 # Long discussion on how to properly handly cross platform builds
 # with single-target / multiple-target compilers
@@ -23,7 +22,7 @@ ExternalProject_Add(
     GIT_TAG        "4.7"
     GIT_PROGRESS   TRUE
 
-    SOURCE_DIR "${CMAKE_SOURCE_DIR}/3rdparty/restbed"
+    SOURCE_DIR "${CMAKE_BINARY_DIR}/3rdparty/restbed"
     CMAKE_ARGS 
         -DBUILDSHARED=OFF 
         -DBUILD_TESTS=OFF 

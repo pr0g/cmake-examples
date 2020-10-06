@@ -8,12 +8,11 @@ include(ExternalProject)
 # The parent script needs to define the "GLOBAL_OUTPUT_PATH" variable,
 # which will be used as output directory for all *.lib, *.dll, *.a, *.so, *.pdb files.
 
-set(EXTERNAL_LIB          rapidjson)
 set(RAPIDJSON_ROOT        ${GLOBAL_OUTPUT_PATH}/rapidjson)
 set(RAPIDJSON_LIB_DIR     ${RAPIDJSON_ROOT}/lib)
 set(RAPIDJSON_INCLUDE_DIR ${RAPIDJSON_ROOT}/include)
 
-message(INFO "ExternalProject_Add() - ${EXTERNAL_LIB} - building ${CMAKE_BUILD_TYPE}")
+message(INFO "ExternalProject_Add() - rapidjson - building ${CMAKE_BUILD_TYPE}; CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}")
 
 ExternalProject_Add(
     RAPIDJSON_external
@@ -22,7 +21,7 @@ ExternalProject_Add(
     GIT_TAG "ce81bc9edfe773667a7a4454ba81dac72ed4364c"
     GIT_PROGRESS TRUE
 
-    SOURCE_DIR "${CMAKE_SOURCE_DIR}/3rdparty/rapidjson"
+    SOURCE_DIR "${CMAKE_BINARY_DIR}/3rdparty/rapidjson"
     CMAKE_ARGS 
         -DRAPIDJSON_BUILD_DOC=OFF
         -DRAPIDJSON_BUILD_EXAMPLES=OFF
