@@ -8,8 +8,11 @@ include(ExternalProject)
 # The parent script needs to define the "GLOBAL_OUTPUT_PATH" variable,
 # which will be used as output directory for all *.lib, *.dll, *.a, *.so, *.pdb files.
 
+set(EXTERNAL_LIB       catch2)
 set(CATCH2_ROOT        ${GLOBAL_OUTPUT_PATH}/catch2)
 set(CATCH2_INCLUDE_DIR ${CATCH2_ROOT}/include)
+
+message(INFO "ExternalProject_Add() - ${EXTERNAL_LIB} - building ${CMAKE_BUILD_TYPE}")
 
 ExternalProject_Add(
     CATCH2_external
@@ -24,6 +27,7 @@ ExternalProject_Add(
         -DCATCH_INSTALL_DOCS=OFF
         -DCMAKE_INSTALL_PREFIX=${CATCH2_ROOT}
         -DCMAKE_PREFIX_PATH=${CATCH2_ROOT}
+        -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 
     TEST_COMMAND  ""
     UPDATE_COMMAND ""

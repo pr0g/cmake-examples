@@ -6,9 +6,12 @@ include(ExternalProject)
 # The parent script needs to define the "GLOBAL_OUTPUT_PATH" variable,
 # which will be used as output directory for all *.lib, *.dll, *.a, *.so, *.pdb files.
 
+set(EXTERNAL_LIB        restbed)
 set(RESTBED_ROOT        ${GLOBAL_OUTPUT_PATH}/restbed)
 set(RESTBED_LIB_DIR     ${RESTBED_ROOT}/library)
 set(RESTBED_INCLUDE_DIR ${RESTBED_ROOT}/include)
+
+message(INFO "ExternalProject_Add() - ${EXTERNAL_LIB} - building ${CMAKE_BUILD_TYPE}")
 
 ExternalProject_Add(
     restbed_external
@@ -25,6 +28,7 @@ ExternalProject_Add(
         -DBUILD_SHARED_LIBS=OFF 
         -DCMAKE_INSTALL_PREFIX=${RESTBED_ROOT}
         -DCMAKE_PREFIX_PATH=${RESTBED_ROOT}
+        -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
 
     TEST_COMMAND  ""
     UPDATE_COMMAND ""
