@@ -8,7 +8,7 @@ include(ExternalProject)
 # download, configure, build and install the dependency
 # note: The install location is set to the build folder
 ExternalProject_Add(
-    bec 
+    bec
     GIT_REPOSITORY https://github.com/pr0g/bit-field-enum-class.git
     GIT_TAG origin/main
     INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}

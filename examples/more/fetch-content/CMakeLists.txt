@@ -10,7 +10,7 @@ include(FetchContent)
 # of GIT_REPOSITORY - this is very useful for local iterative development
 # if you are working on the libary and application together
 FetchContent_Declare(
-    bec 
+    bec
     GIT_REPOSITORY https://github.com/pr0g/bit-field-enum-class.git
     GIT_TAG origin/main)
 # utility to setup the downloaded library for use
