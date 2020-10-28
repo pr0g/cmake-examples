@@ -1,5 +1,12 @@
 # History
 
+## 28th October 2020
+
+- Add a new example project to examples/more to demonstrate `ExternalProject_Add`
+- Shuffle `FetchContext` description to new README file in the relevant directory
+- Update README.md with a reference to the new `ExternalProject_Add` example
+- Add a couple helper `.bat/.sh` scripts for `ExternalProject_Add` and `FetchContent` examples. 
+
 ## 19th July 2020
 
 - Rename branch
