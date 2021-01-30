@@ -124,6 +124,10 @@ Check out the [fetch-content](examples/more/fetch-content) example for a simple 
 
 Check out the [external-project-add](examples/more/external-project-add) example for an (_opinionated_) introduction on how to take advantage of the command.
 
+### `cmake-helpers`
+
+I've put together some little wrappers to reduce the amount of boilerplate needed when installing libraries. These can be pulled in using `FetchContent`. Please see [cmake-helpers](https://github.com/pr0g/cmake-helpers) for more details.
+
 ## CMake Resources
 
 I've been attempting to learn CMake for a while and have built up quite a list of articles/blogs/documentation that have helped inform my understanding up to this point. Please see them listed below (mainly for my benefit so I have them all in one place).

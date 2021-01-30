@@ -1,5 +1,10 @@
 # History
 
+## 30th January 2021
+
+- Add a new example ([nested-dependencies](examples/more/nested-dependencies)) to discuss some requirements of `<proj>-config.cmake` files
+- Add reference to [cmake-helpers](https://github.com/pr0g/cmake-helpers) repo
+
 ## 28th October 2020
 
 - Add a new example project to examples/more to demonstrate `ExternalProject_Add`
@@ -93,7 +98,7 @@
 ## 12th March 2019
 
 - Fixed `.gitattributes` file (finally) to correctly display languages in repo
-- Merged PR by 0xflotus to fix a spelling mistake
+- Merged [PR](https://github.com/pr0g/cmake-examples/pull/3) by [0xflotus](https://github.com/0xflotus) to fix a spelling mistake
 
 ## 11th March 2019
 
