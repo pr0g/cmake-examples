@@ -1,5 +1,9 @@
 # History
 
+## 14th February 2021
+
+- Add new info to README.md about project structure
+
 ## 30th January 2021
 
 - Add a new example ([nested-dependencies](examples/more/nested-dependencies)) to discuss some requirements of `<proj>-config.cmake` files
@@ -10,7 +14,7 @@
 - Add a new example project to examples/more to demonstrate `ExternalProject_Add`
 - Shuffle `FetchContext` description to new README file in the relevant directory
 - Update README.md with a reference to the new `ExternalProject_Add` example
-- Add a couple helper `.bat/.sh` scripts for `ExternalProject_Add` and `FetchContent` examples. 
+- Add a couple helper `.bat/.sh` scripts for `ExternalProject_Add` and `FetchContent` examples
 
 ## 19th July 2020
 

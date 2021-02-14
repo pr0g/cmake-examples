@@ -124,9 +124,49 @@ Check out the [fetch-content](examples/more/fetch-content) example for a simple 
 
 Check out the [external-project-add](examples/more/external-project-add) example for an (_opinionated_) introduction on how to take advantage of the command.
 
-### `cmake-helpers`
+### cmake-helpers
 
 I've put together some little wrappers to reduce the amount of boilerplate needed when installing libraries. These can be pulled in using `FetchContent`. Please see [cmake-helpers](https://github.com/pr0g/cmake-helpers) for more details.
+
+### Project Structure
+
+When creating a library that is going to be used via installing (`find_package`) and/or `add_subdirectory`/`FetchContent`, it is wise to ensure the include paths for files are the same for both. For this reason it's (_in my humble opinion_) best to format your directory structure like so:
+
+```bash
+|-- <library-name>/
+    |-- include/
+        |-- <library-name>/
+            |-- file1.h
+            |-- file2.h
+            |-- etc...
+    |-- src/
+        |-- file1.cpp
+        |-- file2.cpp
+        |-- etc...
+    |-- CMakeLists.txt
+```
+
+> Note: Currently (as of 2021/02/14) not all examples in this repo follow this convention. I'll be updating them in the near future...
+
+When you specify `target_include_directories` (see below), have it point to the `include/` folder so all includes wind up looking like `#include "library-name/file1.h"` as opposed to just `#include "file1.h"`. This helps to compartmentalize the library files (similar to a `namespace`).
+
+```cmake
+target_include_directories(
+    ${PROJECT_NAME}
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+              $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+```
+
+The install command for the interface (`.h`) files then looks like this:
+
+```cmake
+install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/${PROJECT_NAME}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
+```
+
+Now the include paths for the library will always be consistent whether using `find_package` or `FetchContent`.
+
+_Aside: For more information on approaches to project structure checkout out [Pitchfork](https://github.com/vector-of-bool/pitchfork) by [vector-of-bool](https://github.com/vector-of-bool)._
 
 ## CMake Resources
 
