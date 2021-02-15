@@ -22,7 +22,9 @@ include(GNUInstallDirs)
 # sets the search paths for the include files after installation
 # this allows users to #include the library headers
 target_include_directories(
-    ${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+    ${PROJECT_NAME}
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+              $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 # specify the target to install (calculator library defined above)
 # set the export name <name>-config (does not need to match target name)
