@@ -1,5 +1,9 @@
 # History
 
+## 16th February 2021
+
+- Update examples to improved project structure
+
 ## 14th February 2021
 
 - Add new info to README.md about project structure
