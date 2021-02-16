@@ -16,7 +16,9 @@ target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_17)
 include(GNUInstallDirs)
 
 target_include_directories(
-    ${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+    ${PROJECT_NAME}
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+              $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}-config)
 
