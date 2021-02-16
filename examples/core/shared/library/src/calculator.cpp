@@ -1,4 +1,4 @@
-#include "calculator.h"
+#include "calculator-shared/calculator.h"
 
 int64_t calc_add(int64_t lhs, int64_t rhs)
 {
