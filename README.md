@@ -146,8 +146,6 @@ When creating a library that is going to be used via installing (`find_package`)
     |-- CMakeLists.txt
 ```
 
-> Note: Currently (as of 2021/02/14) not all examples in this repo follow this convention. I'll be updating them in the near future...
-
 When you specify `target_include_directories` (see below), have it point to the `include/` folder so all includes wind up looking like `#include "library-name/file1.h"` as opposed to just `#include "file1.h"`. This helps to compartmentalize the library files (similar to a `namespace`).
 
 ```cmake
