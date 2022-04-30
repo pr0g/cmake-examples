@@ -242,6 +242,8 @@ Importing targets](https://archive.fosdem.org/2013/schedule/event/moderncmake/at
   * [How to join repositories in CMake](https://kubasejdak.com/how-to-join-repositories-in-cmake)
 * Michael Hirsch, Ph.D.
   * [CMake FetchContent vs. ExternalProject](https://www.scivision.dev/cmake-fetchcontent-vs-external-project/)
+* Siliceum - Clément Grégoire
+  * [CMake basics, how does one write a good CMake project?](https://www.siliceum.com/en/blog/post/cmake_01_cmake-basics/)
 
 ### Documentation
 
