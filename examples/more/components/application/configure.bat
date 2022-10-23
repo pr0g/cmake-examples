@@ -1,3 +1,3 @@
 @echo off
 
-cmake -S . -B build -DCMAKE_PREFIX_PATH=%cd%/../library/install
+cmake -B build -DCMAKE_PREFIX_PATH=%cd%/../library/install
