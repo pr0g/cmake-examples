@@ -1,5 +1,15 @@
 # History
 
+## 23rd October 2022
+
+- Add new example to `examples/more` folder covering _superbuilds_ (see [superbuild](/examples/more/superbuild)).
+- Update `.sh/.bat` configure scripts to remove redundant `-S .` command line argument.
+- See [PR #10](https://github.com/pr0g/cmake-examples/pull/10) for both changes.
+
+## 30th April 2022
+
+- Added new CMake intro article link (cd1cbeb739057b017085d8f7bd25bac6b2059942)
+
 ## 16th February 2021
 
 - Update examples to improved project structure
