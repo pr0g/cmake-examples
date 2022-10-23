@@ -1,12 +1,20 @@
 cmake_minimum_required(VERSION 3.15)
+# handle new policy for url download method
+# see https://cmake.org/cmake/help/latest/policy/CMP0135.html for details
 cmake_policy(SET CMP0135 NEW)
 
+# only bother creating a separate project if we're not
+# building as part of a superbuild
 if(NOT SUPERBUILD)
     project(external)
 endif()
 
 include(ExternalProject)
 
+# handle different build configurations for external dependencies for both
+# single and multi-config generators.
+# this is to ensure different build configurations go to separate internal
+# folders so switching between Debug/Release doesn't cause frequent rebuilds
 get_property(isMultiConfig GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
 if(NOT isMultiConfig)
     if(NOT CMAKE_BUILD_TYPE)
@@ -20,6 +28,9 @@ else()
     set(build_config_arg --config=$<CONFIG>)
 endif()
 
+# when using superbuild, choose a default build folder for the external
+# project(s), otherwise default to the one provided by the user if building
+# from this folder
 if(SUPERBUILD)
     set(PREFIX_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/build)
 else()
