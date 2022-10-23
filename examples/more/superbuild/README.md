@@ -8,6 +8,12 @@ The trick is to define a 'pseudo' external project for the repo that uses the lo
 
 This example ensures the external dependencies go to a separate build folder in the external folder (otherwise we might as well use `FetchContent`). It also handles different configurations (Debug/Release etc...), using separate folders to store the intermediate build files. Both are installed to the same folder but use a debug postfix (`d`) to ensure debug and release libraries don't stomp on each other.
 
+## Instructions
+
+- Run `./configure.sh` (or `configure.bat` on Windows)
+- Run `./build.sh` (or `build.bat` on Windows)
+- Run either `./build/<config>/superbuild-example` (or `build\<config>\superbuild-example.exe` on Windows)
+
 ## References
 
 - [Sarcasm/cmake-superbuild](https://github.com/Sarcasm/cmake-superbuild) - another simple example of using a superbuild with CMake.
