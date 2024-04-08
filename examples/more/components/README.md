@@ -1,6 +1,6 @@
 # CMake `find_package` COMPONENTS
 
-This is a small example of adding support for components to CMake libraries.
+This is a small example of adding support for components to a CMake library.
 
 This is the functionality where you can specify individual components after the CMake `find_package` command.
 
@@ -31,3 +31,9 @@ The top level `phrases-config.cmake` (from what I can tell) appears to just be a
 Special thanks to Mark Eastwood for his GitHub project [nomnoms](https://github.com/markeastwood82/nomnoms) and his Stack Overflow [question](https://stackoverflow.com/questions/54702582/how-to-configure-project-with-components-in-cmake) for helping me better understand components in CMake.
 
 Also a big thank you to [Craig Scott](https://github.com/Crascit) ([@crascit](https://twitter.com/crascit)) and [Deniz Bahadir](https://github.com/Bagira80) ([@DenizThatMenace](https://twitter.com/DenizThatMenace)) who kindly responded to my e-mails asking about the `COMPONENT` keyword.
+
+## Update April 2024
+
+After receiving a notification about [this question](https://discourse.cmake.org/t/check-required-components-logics/10567) on the CMake Discourse, and doing a little more investigation/research myself, I've updated the example in this folder to now use `configure_package_config_file` in place of `configure_file` (this is recommend by the CMake documentation, see [CMakePackageConfigHelpers](https://cmake.org/cmake/help/latest/module/CMakePackageConfigHelpers.html) for more details).
+
+The updates to `phrases-config.cmake.in` to add improved error messages if a user passes an incorrect component name were also inspired by this [documentation page](https://cmake.org/cmake/help/latest/guide/importing-exporting/index.html#adding-components).

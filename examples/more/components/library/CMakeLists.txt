@@ -73,8 +73,11 @@ install(
 ################################################################################
 # project section
 
-configure_file(${PROJECT_NAME}-config.cmake.in ${PROJECT_NAME}-config.cmake
-               @ONLY)
+include(CMakePackageConfigHelpers)
+
+configure_package_config_file(
+    ${PROJECT_NAME}-config.cmake.in ${PROJECT_NAME}-config.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 
 install(FILES "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
