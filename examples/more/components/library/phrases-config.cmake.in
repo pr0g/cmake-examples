@@ -4,7 +4,7 @@
 set(_phrases_supported_components greetings farewells)
 
 # iterate through components attempting to be found
-foreach(component ${@PROJECT_NAME@_FIND_COMPONENTS})
+foreach(component ${${CMAKE_FIND_PACKAGE_NAME}_FIND_COMPONENTS})
   # if we couldn't find the component, set the phrases library to no
   # longer be found and notify the user about the missing component
   if (NOT ${component} IN_LIST _phrases_supported_components)
