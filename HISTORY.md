@@ -1,5 +1,9 @@
 # History
 
+## 8th April 2024
+
+- Update `examples/more/components` after discussion on CMake Discourse
+
 ## 23rd October 2022
 
 - Add new example to `examples/more` folder covering _superbuilds_ (see [superbuild](/examples/more/superbuild)).
