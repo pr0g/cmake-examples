@@ -1,8 +1,18 @@
 # Modern CMake Examples [![Mentioned in Awesome CMake](https://awesome.re/mentioned-badge.svg)](https://github.com/onqtam/awesome-cmake)
 
+## Update (2024/10/14)
+
+I've written a book about CMake! 😱
+
+It's called **Minimal CMake** and is going to be published on January 3rd, 2025 by Packt. You can find a (non-affiliate) link to the book on amazon.co.uk [here](https://amzn.eu/d/exmlBPv), and amazon.com [here](https://a.co/d/6nE4dw7).
+
+There's a full accompanying repo for the book available [**here**](https://github.com/PacktPublishing/Minimal-CMake) that you're more than welcome to check out to get an idea about the content of the book. I'd be delighted if you'd like to order a copy and I hope it will prove as useful as this repo has turned out to be. This repo was very much the inspiration for the book, and if it wasn't for all the stars and support I don't think it would have happened.
+
+A huge thank you to everyone who starred the repo, it means a huge amount!
+
 ## Overview
 
-This repository is a collection of as simple as possible CMake projects (with a focus on __installing__). The idea is to try and help understand exactly what each part of a `CMakeLists.txt` file does and why it is needed.
+This repository is a collection of as simple as possible CMake projects (with a focus on **installing**). The idea is to try and help understand exactly what each part of a `CMakeLists.txt` file does and why it is needed.
 
 This is basically intended as a series of reminders to help me remember how to use CMake 🤦
 
@@ -10,19 +20,19 @@ Please see the [Core Example README](examples/core/README.md) for steps on using
 
 ## Disclaimer
 
-I am __NOT__ a CMake expert - these examples may contain gaffs, faux pas, mistakes etc etc.. Please take everything with a pinch of salt and if you recognize a blatant error or mistake please feel free to create an issue or PR.
+I am **NOT** a CMake expert - these examples may contain gaffs, faux pas, mistakes etc etc.. Please take everything with a pinch of salt and if you recognize a blatant error or mistake please feel free to create an issue or PR.
 
 ## Background
 
-For the longest time I just didn't grok __installing__ in CMake<sup>1</sup>.
+For the longest time I just didn't grok **installing** in CMake<sup>1</sup>.
 
-I didn't understand _why_ you'd ever want to do it, or _what_ it was useful for. When I started looking into _how_ to do it I could not make head nor tail of all the various __install__ commands. While trying to figure all this stuff out I was immersing myself in trying to learn Modern CMake (targets, targets targets...) and how these two things are related.
+I didn't understand _why_ you'd ever want to do it, or _what_ it was useful for. When I started looking into _how_ to do it, I could not make head nor tail of all the various **install** commands. While trying to figure all this stuff out I was immersing myself in trying to learn Modern CMake (targets, targets targets...) and how these two things are related.
 
 The examples in this repo are the culmination of many months of sporadic research to try and understand CMake more fully and write better CMake scripts.
 
 I'm sharing my journey so far to hopefully help some other poor soul who is in the same boat I'm in. With any luck there will be something someone finds useful here.
 
-For an explanation<sup>2</sup> of _what_ (in the context of CMake) __installing__  is, please see the [installing](installing/README.md) section and take a look at the various [example](examples/core) projects for context.
+For an explanation<sup>2</sup> of _what_ (in the context of CMake) **installing** is, please see the [installing](installing/README.md) section and take a look at the various [example](examples/core) projects for context.
 
 1. I recently discovered a kindred spirit on [reddit](https://www.reddit.com/r/cpp/comments/6m7sp6/cmake_and_c_whats_the_deal_with_installing/)
 2. My interpretation?
@@ -61,7 +71,7 @@ cmake -S . -B build/ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 > Note: `CMAKE_EXPORT_COMPILE_COMMANDS` is only supported for _Make_ and _Ninja_ generators. The good news is it's pretty simple to use _Ninja_ on Windows in place of _Visual Studio_/_MSBuild_ - for instructions please see [this repo](https://github.com/pr0g/clang-experiments#ninja).
 >
-> __TLDR__: Add `-G Ninja` to the above command to use _Ninja_.
+> **TLDR**: Add `-G Ninja` to the above command to use _Ninja_.
 
 ### Defines
 
@@ -103,7 +113,7 @@ This works for an array of generators (_Make, Visual Studio, Ninja_ etc.).
 
 ### CONFIG
 
-You'll notice all of the `find_package` commands include the `CONFIG` keyword after the package name (and `REQUIRED`). This is to let CMake know we're explicitly using a CMake `<package>-config.cmake` file and not a FindModule command (all these examples use the more modern config approach so including `CONFIG` in the `find_package` command should be preferred).
+You'll notice all the `find_package` commands include the `CONFIG` keyword after the package name (and `REQUIRED`). This is to let CMake know we're explicitly using a CMake `<package>-config.cmake` file and not a FindModule command (all these examples use the more modern config approach so including `CONFIG` in the `find_package` command should be preferred).
 
 ### DEBUG_POSTFIX
 
@@ -309,7 +319,7 @@ A Practical Guide](https://crascit.com/professional-cmake/)
 
 ### Other
 
-* [Cpplang Slack](https://cpplang.now.sh/) __#cmake__ channel
+* [Cpplang Slack](https://cpplang.now.sh/) **#cmake** channel
   * There's some super helpful people on there, the search functionality is great too (someone likely will have had your problem before 😉).
 * [vector-of-bool](https://github.com/vector-of-bool)
   * Was incredibly kind in answering some of my dumb CMake questions - thank you!

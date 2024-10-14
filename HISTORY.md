@@ -1,5 +1,9 @@
 # History
 
+## 14th October 2024
+
+- Add note about upcoming book, Minimal CMake
+
 ## 8th April 2024
 
 - Update `examples/more/components` after discussion on CMake Discourse
