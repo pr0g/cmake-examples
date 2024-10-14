@@ -3,6 +3,7 @@
 ## 14th October 2024
 
 - Add note about upcoming book, Minimal CMake
+- Add find module example to `examples/more` section
 
 ## 8th April 2024
 
