@@ -1,12 +1,16 @@
 # Modern CMake Examples [![Mentioned in Awesome CMake](https://awesome.re/mentioned-badge.svg)](https://github.com/onqtam/awesome-cmake)
 
-## Update (2024/10/14)
+## Update (2025/02/22)
 
 I've written a book about CMake! 😱
 
-It's called **Minimal CMake** and is going to be published on January 3rd, 2025 by Packt. You can find a (non-affiliate) link to the book on amazon.co.uk [here](https://amzn.eu/d/exmlBPv), and amazon.com [here](https://a.co/d/6nE4dw7).
+<img src="https://content.packt.com/_/image/original/B21152/cover_image_large.jpg" alt="Minimal CMake" itemprop="url" height="256px"><br>
 
-There's a full accompanying repo for the book available [**here**](https://github.com/PacktPublishing/Minimal-CMake) that you're more than welcome to check out to get an idea about the content of the book. I'd be delighted if you'd like to order a copy and I hope it will prove as useful as this repo has turned out to be. This repo was very much the inspiration for the book, and if it wasn't for all the stars and support I don't think it would have happened.
+It's called **Minimal CMake**, and was published on January 3rd, 2025 by Packt.
+
+You can find a (non-affiliate) link to the book on amazon.co.uk [here](https://amzn.eu/d/exmlBPv), and amazon.com [here](https://a.co/d/6nE4dw7).
+
+There's a full accompanying repo for the book available [**here**](https://github.com/PacktPublishing/Minimal-CMake) that you're more than welcome to check out to get an idea about the content of the book. I'd be delighted if you'd like to purchase a copy and I hope it will prove as useful as this repo has turned out to be. This repo was very much the inspiration for the book, and if it wasn't for all the stars and support I don't think it would have happened.
 
 A huge thank you to everyone who starred the repo, it means a huge amount!
 
